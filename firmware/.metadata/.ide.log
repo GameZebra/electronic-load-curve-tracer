@@ -982,3 +982,1162 @@
 2026-06-12 18:12:50,112 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 764mS.
 2026-06-12 18:12:50,113 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
 2026-06-12 18:12:50,119 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-06-12 18:22:35,699 [INFO] MainUpdater:2872 - connection check result : 10
+2026-06-12 18:22:35,792 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2026-06-12 18:22:35,792 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2026-06-12 18:22:35,793 [INFO] FinderPluginLoader:96 - Searching for filters in installed packs
+2026-06-12 18:22:37,839 [INFO] LoadUrlFilesThread:185 - End of LoadServerUrlFiles without Thread
+2026-06-12 18:22:37,841 [INFO] DetailPanel:341 - Set advertising image to /home/gamezebra/STM32Cube/Repository//en.prom-stm32wl3r-0526.jpg
+2026-06-12 18:23:08,898 [INFO] MainUpdater:2872 - connection check result : 10
+2026-06-12 18:23:08,899 [INFO] MainUpdater:2872 - connection check result : 10
+2026-06-12 18:23:08,916 [INFO] MicroXplorer:468 - Change Database Path : 
+2026-06-12 18:23:08,916 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.150
+2026-06-12 18:23:08,925 [ERROR] ProjectManagerView:395 - 
+java.lang.NullPointerException: Cannot invoke "javax.swing.JTextField.getText()" because the return value of "java.util.List.get(int)" is null
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectChoiceTab$9.caretUpdate(ProjectChoiceTab.java:2706) ~[filemanager.jar:?]
+	at javax.swing.text.JTextComponent.fireCaretUpdate(JTextComponent.java:408) ~[?:?]
+	at javax.swing.text.JTextComponent$MutableCaretEvent.fire(JTextComponent.java:4484) ~[?:?]
+	at javax.swing.text.JTextComponent$MutableCaretEvent.stateChanged(JTextComponent.java:4506) ~[?:?]
+	at javax.swing.text.DefaultCaret.fireStateChanged(DefaultCaret.java:857) ~[?:?]
+	at javax.swing.text.DefaultCaret.changeCaretPosition(DefaultCaret.java:1343) ~[?:?]
+	at javax.swing.text.DefaultCaret.handleSetDot(DefaultCaret.java:1242) ~[?:?]
+	at javax.swing.text.DefaultCaret.setDot(DefaultCaret.java:1223) ~[?:?]
+	at javax.swing.text.DefaultCaret$Handler.insertUpdate(DefaultCaret.java:1819) ~[?:?]
+	at javax.swing.text.AbstractDocument.fireInsertUpdate(AbstractDocument.java:227) ~[?:?]
+	at javax.swing.text.AbstractDocument.handleInsertString(AbstractDocument.java:781) ~[?:?]
+	at javax.swing.text.AbstractDocument.insertString(AbstractDocument.java:740) ~[?:?]
+	at javax.swing.text.PlainDocument.insertString(PlainDocument.java:131) ~[?:?]
+	at javax.swing.text.AbstractDocument.replace(AbstractDocument.java:699) ~[?:?]
+	at javax.swing.text.JTextComponent.setText(JTextComponent.java:1725) ~[?:?]
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectChoiceTab.createHeapStackFields(ProjectChoiceTab.java:993) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectChoiceTab.buildLinkSettingsPanel(ProjectChoiceTab.java:3813) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectChoiceTab.defineWindowsFields(ProjectChoiceTab.java:1987) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectChoiceTab.updateSettings(ProjectChoiceTab.java:558) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.projectmanager.gui.ProjectSettingsPanel.UpdateDialog(ProjectSettingsPanel.java:247) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.projectmanager.ProjectManagerView.propertyChange(ProjectManagerView.java:392) ~[filemanager.jar:?]
+	at java.beans.PropertyChangeSupport.fire(PropertyChangeSupport.java:343) ~[?:?]
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:335) ~[?:?]
+	at java.beans.PropertyChangeSupport.firePropertyChange(PropertyChangeSupport.java:268) ~[?:?]
+	at com.st.microxplorer.util.MXPropertyChangeSupport.firePropertyChange(MXPropertyChangeSupport.java:54) ~[STM32CubeMX.jar:?]
+	at com.st.microxplorer.mxsystem.MxSystem.closeConfig(MxSystem.java:899) ~[STM32CubeMX.jar:?]
+	at com.st.microxplorer.maingui.MainPanel.closeConfig(MainPanel.java:792) ~[STM32CubeMX.jar:?]
+	at com.st.microxplorer.plugins.filemanager.engine.OpenFileManager.loadConfigurationFile(OpenFileManager.java:288) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.filemanager.engine.MainFileManager.userLoadConfig(MainFileManager.java:364) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.filemanager.engine.MainFileManager.userLoadConfig(MainFileManager.java:342) ~[filemanager.jar:?]
+	at com.st.microxplorer.plugins.filemanager.FileManagerView.getSpecificTask(FileManagerView.java:264) ~[filemanager.jar:?]
+	at com.st.stm32cube.common.mx.editor.CubeMxEditor.getMxTabbedPaneInstance(CubeMxEditor.java:1198) ~[com.st.stm32cube.common.mx_6.15.0.202507011659/:?]
+	at com.st.stm32cube.common.mx.editor.CubeMxEditor$12$1.createSwingComponent(CubeMxEditor.java:1068) ~[com.st.stm32cube.common.mx_6.15.0.202507011659/:?]
+	at com.st.stm32cube.common.mx.oss.core.awtswtbridge.EmbeddedSwingComposite.doComponentCreation(EmbeddedSwingComposite.java:492) ~[com.st.stm32cube.common.mx.oss_6.15.0.202507011659/:?]
+	at com.st.stm32cube.common.mx.oss.core.awtswtbridge.EmbeddedSwingComposite$4.run(EmbeddedSwingComposite.java:291) ~[com.st.stm32cube.common.mx.oss_6.15.0.202507011659/:?]
+	at com.st.stm32cube.common.mx.oss.core.awtswtbridge.AwtEnvironment$2.run(AwtEnvironment.java:166) ~[com.st.stm32cube.common.mx.oss_6.15.0.202507011659/:?]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:720) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:714) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87) ~[?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:742) ~[?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) ~[?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) ~[?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) ~[?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) ~[?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) ~[?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) ~[?:?]
+2026-06-12 18:23:08,932 [WARN] ThirdParty:871 - waiting for thirdparty lock release [close project]
+2026-06-12 18:23:08,932 [INFO] ThirdParty:873 - entering critical section [close project]
+2026-06-12 18:23:08,932 [INFO] ThirdParty:883 - exiting critical section [close project]
+2026-06-12 18:23:08,934 [INFO] PinOutPanel:1589 - setPackage(No Configuration,No Configuration)
+2026-06-12 18:23:08,939 [WARN] IpParametersView:155 - Warning: This peripheral hasn't parameters
+2026-06-12 18:23:08,941 [WARN] MainPanel:289 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2026-06-12 18:23:08,947 [INFO] UtilMem:75 - Begin LoadConfig() Used Memory: 746693256 Bytes (905969664)
+2026-06-12 18:23:08,948 [INFO] MicroXplorer:468 - Change Database Path : 
+2026-06-12 18:23:08,948 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.150
+2026-06-12 18:23:08,948 [INFO] OpenFileManager:355 - Change cursor
+2026-06-12 18:23:08,963 [INFO] RulesReader:64 - Compatibility file has been processed (317 Rules)
+2026-06-12 18:23:08,970 [INFO] Mcu:2029 - Initializing MCU STM32F407VGTx STM32F407VGTx STM32F407VGT6
+2026-06-12 18:23:09,960 [INFO] Context:786 - Trying to add GPIOservice into a context  which must be forbidden
+2026-06-12 18:23:10,532 [INFO] ImportTextPane:234 - (OptionalMessage_ERROR) Unable to find key (Mcu.ThirdPartyNb) in loaded IOC file
+2026-06-12 18:23:10,532 [INFO] ImportTextPane:234 - (OptionalMessage_ERROR) Unable to find key (Mcu.PinsNb) in loaded IOC file
+2026-06-12 18:23:10,532 [INFO] ImportTextPane:234 - (OptionalMessage_ERROR) Pin0 (VP_RIF_VS_RIF1) cannot be retrieved for this MCU
+2026-06-12 18:23:10,533 [INFO] ImportTextPane:234 - (OptionalMessage_ERROR) Unable to find key (Mcu.IPNb) in loaded IOC file
+2026-06-12 18:23:10,640 [INFO] RtosManager:558 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2026-06-12 18:23:10,640 [INFO] RtosManager:558 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2026-06-12 18:23:10,640 [INFO] RtosManager:558 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2026-06-12 18:23:10,640 [INFO] RtosManager:558 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2026-06-12 18:23:10,641 [WARN] ModelIntegratedComponent:184 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2026-06-12 18:23:10,649 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,649 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,649 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,649 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,649 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,649 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,649 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,650 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,651 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,651 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,651 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,651 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,651 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,651 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,651 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,651 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,651 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,651 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,651 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,652 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,652 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,652 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,652 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2026-06-12 18:23:10,652 [WARN] ModelPack:524 - Component already loaded: STMicroelectronics:HAL Drivers:0.0.0:STMicroelectronics:Device:STMicro_Driver:XSPI:HAL::0.0.1:HAL_XSPI
+2026-06-12 18:23:10,791 [INFO] ThirdPartyModel:298 - Start build external matchings
+2026-06-12 18:23:11,780 [INFO] ThirdPartyModel:316 - End build external matchings
+2026-06-12 18:23:11,979 [INFO] UtilMem:75 - End LoadConfig() Used Memory: 484166176 Bytes (905969664)
+2026-06-12 18:23:11,987 [WARN] ThirdParty:833 - waiting for thirdparty lock release [change project]
+2026-06-12 18:23:11,987 [INFO] ThirdParty:835 - entering critical section [change project]
+2026-06-12 18:23:11,987 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.5.0
+2026-06-12 18:23:11,987 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-PM33A1 1.0.0
+2026-06-12 18:23:11,987 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USBPD 4.1
+2026-06-12 18:23:11,987 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC9 1.0.0
+2026-06-12 18:23:11,987 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2026-06-12 18:23:11,987 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENVWB1 1.4.0
+2026-06-12 18:23:11,987 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F4 1.1.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics LIBJPEG 8.0.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfSSL 5.8.2
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 7.1.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SMBUS 2.1.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfMQTT 1.19.2
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ISPU 2.1.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.4.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 5.2.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-IPS 3.2.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 4.1.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics eDS-WB_DPC_TT-BIDIR 2.1.1
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WB 2.0.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :Cesanta I-CUBE-Mongoose 7.20.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC12 1.0.0
+2026-06-12 18:23:11,988 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F7 1.1.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 2.0.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC6 3.1.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ST67W61 1.1.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-STAIOTCFT 1.1.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :quantropi X-CUBE-qispace-sdk-base 2.1.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 12.0.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-STSE01 2.0.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.5.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G0 1.1.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 3.0.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 5.0.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics STM32_WPAN 1.0.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics eDS-WB_DPC_VIENNA 1.2.0
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :EmbeddedOffice I-CUBE-FS-RTOS 1.0.1
+2026-06-12 18:23:11,989 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :WES I-CUBE-Cesium 1.4.0
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics eDS-WB_DPC_3PH2L-BIDIR 1.1.1
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :Infineon AIROC-Wi-Fi-Bluetooth-STM32 1.7.1
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 2.0.0
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-WB05N 2.0.0
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfTPM 3.8.0
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.4.0
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 3.0.0
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfSSH 1.4.20
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 2.0.0
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 7.1.1
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENVWB1 1.5.0
+2026-06-12 18:23:11,990 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TCPP 4.2.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :RealThread X-CUBE-RT-Thread_Nano 4.1.1
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-SIGFOX1 3.2.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC10 1.0.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.5.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ST60 1.1.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALS 1.0.2
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :emotas I-CUBE-CANOPEN 1.3.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 7.1.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :ITTIA_DB I-CUBE-ITTIADB 8.9.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.26.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-STSE01 1.0.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.26.1
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC6 3.2.0
+2026-06-12 18:23:11,991 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 10.2.0
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-STAIOTCFT 1.0.0
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics ThreadX 1.0.0
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 12.1.0
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WL 2.0.0
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.3.1
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.4.0
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DPower 1.3.0
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 11.3.0
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7RS 1.2.0
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 2.0.0
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics ThreadX 0.0.2
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2026-06-12 18:23:11,992 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SFXS2LP1 4.0.0
+2026-06-12 18:23:11,993 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.3.0
+2026-06-12 18:23:11,993 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :Avnet-IOTCONNECT X-CUBE-iotc-st67-sdk 1.0.0
+2026-06-12 18:23:11,993 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.4.3
+2026-06-12 18:23:11,993 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC13 1.0.0
+2026-06-12 18:23:11,993 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2026-06-12 18:23:11,993 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-WB05N 2.1.0
+2026-06-12 18:23:11,993 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ST67W61 1.2.0
+2026-06-12 18:23:11,993 [INFO] ThirdParty:841 - exiting critical section [change project]
+2026-06-12 18:23:12,202 [INFO] PinOutPanel:1589 - setPackage(No Configuration,No Configuration)
+2026-06-12 18:23:12,202 [INFO] PinOutPanel:1589 - setPackage(STM32F407VGTx,LQFP100)
+2026-06-12 18:23:12,402 [INFO] UtilMem:75 - Before build in PCC Used Memory: 713282080 Bytes (905969664)
+2026-06-12 18:23:12,767 [INFO] UtilMem:75 - After build in PCC Used Memory: 758893088 Bytes (905969664)
+2026-06-12 18:23:12,788 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,789 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,789 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,789 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,789 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,789 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,789 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,790 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,790 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,790 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,790 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,790 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,790 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,790 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,791 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,791 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,791 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,791 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,791 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,791 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,792 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,792 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,792 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,792 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,792 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,793 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,793 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,793 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,793 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,793 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,794 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,794 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,794 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,794 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,794 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,794 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,795 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,795 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,795 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,795 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,795 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,795 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,795 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,795 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,795 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,796 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,796 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,796 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,796 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,796 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,796 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,796 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,796 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,797 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,797 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,797 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,798 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,798 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-06-12 18:23:12,800 [INFO] ApiDbMcu:532 - Load IP Config File for PDM2PCM
+2026-06-12 18:23:12,826 [INFO] CADModel:165 - CPN selected for project levelSTM32F407VGT6
+2026-06-12 18:23:12,827 [INFO] CADModel:114 - Register for checkConnection events
+2026-06-12 18:23:12,866 [INFO] OpenFileManager:386 - Restore cursor
+2026-06-12 18:23:13,125 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 352378624 Bytes (905969664)
+2026-06-12 18:23:13,278 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 375447296 Bytes (905969664)
+2026-06-12 18:23:13,478 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-06-12 18:23:13,478 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-06-12 18:23:13,479 [INFO] CodeGenerator:892 - code generatio: config db path: /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.common.mx_6.15.0.202507011659//db/
+2026-06-12 18:23:13,548 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp_save
+2026-06-12 18:23:13,601 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp
+2026-06-12 18:23:13,615 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c_save
+2026-06-12 18:23:13,679 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c
+2026-06-12 18:23:13,686 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h_save
+2026-06-12 18:23:13,743 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h
+2026-06-12 18:23:13,776 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c_save
+2026-06-12 18:23:13,854 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c
+2026-06-12 18:23:13,861 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp_save
+2026-06-12 18:23:13,914 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp
+2026-06-12 18:23:13,928 [INFO] CodeEngine:321 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h_save
+2026-06-12 18:23:13,990 [INFO] CodeEngine:345 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h
+2026-06-12 18:23:14,008 [INFO] ApiDbMcu:532 - Load IP Config File for RCC
+2026-06-12 18:23:14,017 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h_save
+2026-06-12 18:23:14,080 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h
+2026-06-12 18:23:14,087 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c_save
+2026-06-12 18:23:14,169 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c
+2026-06-12 18:23:14,511 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 180mS.
+2026-06-12 18:23:14,515 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-06-12 18:23:14,586 [INFO] ConfigFileManager:1595 - The Die is : DIE413
+2026-06-12 18:23:14,588 [INFO] ApiDbMcu:532 - Load IP Config File for FATFS
+2026-06-12 18:23:14,591 [INFO] ApiDbMcu:532 - Load IP Config File for FREERTOS
+2026-06-12 18:23:14,593 [INFO] ApiDbMcu:532 - Load IP Config File for LIBJPEG
+2026-06-12 18:23:14,597 [INFO] ApiDbMcu:532 - Load IP Config File for LWIP
+2026-06-12 18:23:14,601 [INFO] ApiDbMcu:532 - Load IP Config File for MBEDTLS
+2026-06-12 18:23:14,605 [INFO] ApiDbMcu:532 - Load IP Config File for USB_DEVICE
+2026-06-12 18:23:14,607 [INFO] ApiDbMcu:532 - Load IP Config File for USB_HOST
+2026-06-12 18:23:16,388 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 1873mS.
+2026-06-12 18:23:16,389 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-06-12 18:23:16,395 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-06-12 18:23:16,596 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2026-06-12 18:23:16,598 [INFO] ApiDb:448 - Save user favorites file /home/gamezebra/.stm32cubeide/favorites.mcus.txt: 1 item(s)
+2026-06-12 18:23:16,598 [INFO] ApiDb:452 - User favorites MCUs=[STM32F407VGT6]
+2026-06-12 18:24:13,451 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-06-12 18:24:16,686 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-06-12 18:24:56,544 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-06-12 18:25:01,091 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-06-12 18:25:11,214 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 491877880 Bytes (907018240)
+2026-06-12 18:25:12,599 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 519667192 Bytes (907018240)
+2026-06-12 18:25:16,893 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 752451064 Bytes (907018240)
+2026-06-12 18:25:17,220 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM6_7
+2026-06-12 18:25:17,220 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-06-12 18:25:17,221 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-06-12 18:25:17,221 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-06-12 18:25:17,221 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-06-12 18:25:17,221 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DAC
+2026-06-12 18:25:17,221 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-06-12 18:25:17,222 [INFO] CodeGenerator:892 - code generatio: config db path: /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.common.mx_6.15.0.202507011659//db/
+2026-06-12 18:25:17,300 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp_save
+2026-06-12 18:25:17,360 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp
+2026-06-12 18:25:17,390 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp_save
+2026-06-12 18:25:17,472 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp
+2026-06-12 18:25:17,549 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp_save
+2026-06-12 18:25:17,615 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp
+2026-06-12 18:25:17,622 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp_save
+2026-06-12 18:25:17,681 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp
+2026-06-12 18:25:17,697 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c_save
+2026-06-12 18:25:17,785 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c
+2026-06-12 18:25:17,793 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h_save
+2026-06-12 18:25:17,859 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h
+2026-06-12 18:25:17,879 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c_save
+2026-06-12 18:25:17,985 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c
+2026-06-12 18:25:17,992 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp_save
+2026-06-12 18:25:18,047 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp
+2026-06-12 18:25:18,062 [INFO] CodeEngine:321 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h_save
+2026-06-12 18:25:18,130 [INFO] CodeEngine:345 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h
+2026-06-12 18:25:18,147 [INFO] ApiDbMcu:532 - Load IP Config File for DAC
+2026-06-12 18:25:18,155 [INFO] ApiDbMcu:532 - Load IP Config File for TIM6
+2026-06-12 18:25:18,157 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-06-12 18:25:18,157 [WARN] CodeGenerator:4259 - IP not found : null
+2026-06-12 18:25:18,167 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h_save
+2026-06-12 18:25:18,237 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h
+2026-06-12 18:25:18,247 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c_save
+2026-06-12 18:25:18,355 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c
+2026-06-12 18:25:18,781 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 250mS.
+2026-06-12 18:25:18,785 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-06-12 18:25:18,864 [INFO] ConfigFileManager:1595 - The Die is : DIE413
+2026-06-12 18:25:19,547 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 761mS.
+2026-06-12 18:25:19,548 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-06-12 18:25:19,554 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-06-12 19:22:11,655 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-06-12 19:22:14,170 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 452013672 Bytes (907018240)
+2026-06-12 19:22:15,546 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 480851560 Bytes (907018240)
+2026-06-12 19:22:20,698 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 708392552 Bytes (907018240)
+2026-06-12 19:22:21,214 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM6_7
+2026-06-12 19:22:21,214 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-06-12 19:22:21,215 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-06-12 19:22:21,215 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-06-12 19:22:21,215 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-06-12 19:22:21,215 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DAC
+2026-06-12 19:22:21,216 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-06-12 19:22:21,218 [INFO] CodeGenerator:892 - code generatio: config db path: /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.common.mx_6.15.0.202507011659//db/
+2026-06-12 19:22:21,222 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-06-12 19:22:21,223 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:22:21,223 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:22:21,224 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:22:21,224 [INFO] Argument:325 - Argument : Initvalue: null
+2026-06-12 19:22:21,224 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:22:21,225 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:22:21,225 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:22:21,226 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:22:21,226 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:22:21,227 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:22:21,227 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:22:21,227 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:22:21,227 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:22:21,227 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:22:21,227 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:22:21,228 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:22:21,228 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:22:21,228 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:22:21,228 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:22:21,229 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:22:21,229 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:22:21,229 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:22:21,229 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:22:21,229 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:22:21,229 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:22:21,230 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-06-12 19:22:21,230 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-06-12 19:22:21,230 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-06-12 19:22:21,230 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-06-12 19:22:21,231 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-06-12 19:22:21,232 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-06-12 19:22:21,232 [INFO] Argument:325 - Argument : Statevalue: null
+2026-06-12 19:22:21,233 [INFO] Argument:335 - Argument : Statevalue: null
+2026-06-12 19:22:21,233 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-06-12 19:22:21,233 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-06-12 19:22:21,233 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:22:21,233 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:22:21,233 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:22:21,233 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:22:21,234 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:22:21,234 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:22:21,234 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:22:21,234 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:22:21,234 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-06-12 19:22:21,234 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-06-12 19:22:21,385 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp_save
+2026-06-12 19:22:21,793 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp
+2026-06-12 19:22:21,851 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp_save
+2026-06-12 19:22:21,986 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp
+2026-06-12 19:22:22,096 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp_save
+2026-06-12 19:22:22,197 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp
+2026-06-12 19:22:22,206 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp_save
+2026-06-12 19:22:22,298 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp
+2026-06-12 19:22:22,324 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c_save
+2026-06-12 19:22:22,566 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c
+2026-06-12 19:22:22,583 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h_save
+2026-06-12 19:22:22,670 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h
+2026-06-12 19:22:22,693 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c_save
+2026-06-12 19:22:22,824 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c
+2026-06-12 19:22:22,835 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp_save
+2026-06-12 19:22:22,900 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp
+2026-06-12 19:22:22,920 [INFO] CodeEngine:321 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h_save
+2026-06-12 19:22:22,993 [INFO] CodeEngine:345 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h
+2026-06-12 19:22:23,022 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-06-12 19:22:23,023 [WARN] CodeGenerator:4259 - IP not found : null
+2026-06-12 19:22:23,039 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h_save
+2026-06-12 19:22:23,146 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h
+2026-06-12 19:22:23,160 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c_save
+2026-06-12 19:22:23,303 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c
+2026-06-12 19:22:23,793 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 259mS.
+2026-06-12 19:22:23,798 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-06-12 19:22:23,887 [INFO] ConfigFileManager:1595 - The Die is : DIE413
+2026-06-12 19:22:24,951 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 1153mS.
+2026-06-12 19:22:24,953 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-06-12 19:22:24,965 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-06-12 19:26:59,990 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-06-12 19:27:10,727 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 498954128 Bytes (907018240)
+2026-06-12 19:27:14,437 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 527787920 Bytes (907018240)
+2026-06-12 19:27:20,541 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 727017360 Bytes (907018240)
+2026-06-12 19:27:20,824 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM6_7
+2026-06-12 19:27:20,824 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-06-12 19:27:20,824 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-06-12 19:27:20,824 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-06-12 19:27:20,825 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-06-12 19:27:20,825 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DAC
+2026-06-12 19:27:20,825 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-06-12 19:27:20,826 [INFO] CodeGenerator:892 - code generatio: config db path: /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.common.mx_6.15.0.202507011659//db/
+2026-06-12 19:27:20,829 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-06-12 19:27:20,829 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:27:20,829 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:27:20,829 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:27:20,830 [INFO] Argument:325 - Argument : Initvalue: null
+2026-06-12 19:27:20,830 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:27:20,830 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:27:20,830 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:27:20,830 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:27:20,830 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:27:20,830 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:27:20,831 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:27:20,831 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:27:20,831 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:27:20,832 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:27:20,834 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:27:20,835 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:27:20,835 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:27:20,836 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:27:20,837 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:27:20,837 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:27:20,838 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:27:20,838 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:27:20,839 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:27:20,839 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:27:20,839 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:27:20,840 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-06-12 19:27:20,840 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-06-12 19:27:20,841 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-06-12 19:27:20,842 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-06-12 19:27:20,842 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-06-12 19:27:20,843 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-06-12 19:27:20,843 [INFO] Argument:325 - Argument : Statevalue: null
+2026-06-12 19:27:20,843 [INFO] Argument:335 - Argument : Statevalue: null
+2026-06-12 19:27:20,843 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-06-12 19:27:20,843 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-06-12 19:27:20,843 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:27:20,844 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:27:20,844 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:27:20,844 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:27:20,844 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:27:20,844 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:27:20,844 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:27:20,844 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:27:20,845 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-06-12 19:27:20,845 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-06-12 19:27:20,947 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp_save
+2026-06-12 19:27:21,029 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp
+2026-06-12 19:27:21,048 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp_save
+2026-06-12 19:27:21,110 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp
+2026-06-12 19:27:21,168 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp_save
+2026-06-12 19:27:21,232 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp
+2026-06-12 19:27:21,240 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp_save
+2026-06-12 19:27:21,301 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp
+2026-06-12 19:27:21,323 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c_save
+2026-06-12 19:27:21,400 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c
+2026-06-12 19:27:21,410 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h_save
+2026-06-12 19:27:21,481 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h
+2026-06-12 19:27:21,501 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c_save
+2026-06-12 19:27:21,596 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c
+2026-06-12 19:27:21,604 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp_save
+2026-06-12 19:27:21,662 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp
+2026-06-12 19:27:21,677 [INFO] CodeEngine:321 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h_save
+2026-06-12 19:27:21,745 [INFO] CodeEngine:345 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h
+2026-06-12 19:27:21,764 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-06-12 19:27:21,765 [WARN] CodeGenerator:4259 - IP not found : null
+2026-06-12 19:27:21,775 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h_save
+2026-06-12 19:27:21,842 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h
+2026-06-12 19:27:21,853 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c_save
+2026-06-12 19:27:21,971 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c
+2026-06-12 19:27:22,443 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 249mS.
+2026-06-12 19:27:22,448 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-06-12 19:27:22,522 [INFO] ConfigFileManager:1595 - The Die is : DIE413
+2026-06-12 19:27:23,338 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 890mS.
+2026-06-12 19:27:23,342 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 3mS.
+2026-06-12 19:27:23,354 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-06-12 19:29:42,312 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-06-12 19:29:45,366 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 609522712 Bytes (907018240)
+2026-06-12 19:29:45,600 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 633113624 Bytes (907018240)
+2026-06-12 19:29:46,159 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 672437272 Bytes (907018240)
+2026-06-12 19:29:46,516 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM6_7
+2026-06-12 19:29:46,517 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-06-12 19:29:46,517 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-06-12 19:29:46,517 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-06-12 19:29:46,517 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-06-12 19:29:46,517 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DAC
+2026-06-12 19:29:46,518 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-06-12 19:29:46,519 [INFO] CodeGenerator:892 - code generatio: config db path: /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.common.mx_6.15.0.202507011659//db/
+2026-06-12 19:29:46,520 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-06-12 19:29:46,520 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:29:46,520 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:29:46,521 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:29:46,521 [INFO] Argument:325 - Argument : Initvalue: null
+2026-06-12 19:29:46,521 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:29:46,521 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:29:46,521 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:29:46,521 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:29:46,521 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:29:46,521 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:29:46,521 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:29:46,521 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:29:46,521 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:29:46,521 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:29:46,521 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:29:46,521 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:29:46,521 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:29:46,522 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:29:46,522 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:29:46,522 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:29:46,522 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:29:46,522 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:29:46,522 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:29:46,522 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:29:46,522 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:29:46,522 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-06-12 19:29:46,522 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-06-12 19:29:46,522 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-06-12 19:29:46,522 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-06-12 19:29:46,522 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-06-12 19:29:46,522 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-06-12 19:29:46,522 [INFO] Argument:325 - Argument : Statevalue: null
+2026-06-12 19:29:46,523 [INFO] Argument:335 - Argument : Statevalue: null
+2026-06-12 19:29:46,523 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-06-12 19:29:46,523 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-06-12 19:29:46,523 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:29:46,523 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:29:46,523 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:29:46,523 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:29:46,523 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:29:46,523 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:29:46,523 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:29:46,524 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:29:46,524 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-06-12 19:29:46,524 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-06-12 19:29:46,648 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp_save
+2026-06-12 19:29:46,707 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp
+2026-06-12 19:29:46,723 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp_save
+2026-06-12 19:29:46,784 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp
+2026-06-12 19:29:46,831 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp_save
+2026-06-12 19:29:46,890 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp
+2026-06-12 19:29:46,896 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp_save
+2026-06-12 19:29:46,952 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp
+2026-06-12 19:29:46,968 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c_save
+2026-06-12 19:29:47,037 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c
+2026-06-12 19:29:47,045 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h_save
+2026-06-12 19:29:47,109 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h
+2026-06-12 19:29:47,128 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c_save
+2026-06-12 19:29:47,219 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c
+2026-06-12 19:29:47,227 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp_save
+2026-06-12 19:29:47,282 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp
+2026-06-12 19:29:47,297 [INFO] CodeEngine:321 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h_save
+2026-06-12 19:29:47,366 [INFO] CodeEngine:345 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h
+2026-06-12 19:29:47,384 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-06-12 19:29:47,384 [WARN] CodeGenerator:4259 - IP not found : null
+2026-06-12 19:29:47,395 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h_save
+2026-06-12 19:29:47,461 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h
+2026-06-12 19:29:47,471 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c_save
+2026-06-12 19:29:47,583 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c
+2026-06-12 19:29:48,006 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 239mS.
+2026-06-12 19:29:48,010 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-06-12 19:29:48,084 [INFO] ConfigFileManager:1595 - The Die is : DIE413
+2026-06-12 19:29:48,743 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 733mS.
+2026-06-12 19:29:48,744 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-06-12 19:29:48,751 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-06-12 19:31:32,558 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2026-06-12 19:31:37,613 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 801250208 Bytes (907018240)
+2026-06-12 19:31:37,866 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 341059920 Bytes (907018240)
+2026-06-12 19:31:38,432 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 341059920 Bytes (907018240)
+2026-06-12 19:31:38,749 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM6_7
+2026-06-12 19:31:38,749 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-06-12 19:31:38,749 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-06-12 19:31:38,749 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-06-12 19:31:38,749 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-06-12 19:31:38,749 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DAC
+2026-06-12 19:31:38,750 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-06-12 19:31:38,751 [INFO] CodeGenerator:892 - code generatio: config db path: /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.common.mx_6.15.0.202507011659//db/
+2026-06-12 19:31:38,753 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-06-12 19:31:38,753 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:31:38,753 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:31:38,753 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:31:38,753 [INFO] Argument:325 - Argument : Initvalue: null
+2026-06-12 19:31:38,753 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:31:38,753 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:31:38,753 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:31:38,754 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:31:38,754 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:31:38,754 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:31:38,754 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:31:38,754 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:31:38,754 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:31:38,754 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:31:38,754 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:31:38,754 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:31:38,754 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:31:38,754 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:31:38,754 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:31:38,754 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:31:38,755 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:31:38,755 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:31:38,755 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:31:38,755 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:31:38,755 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:31:38,755 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-06-12 19:31:38,755 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-06-12 19:31:38,755 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-06-12 19:31:38,755 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-06-12 19:31:38,755 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-06-12 19:31:38,755 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-06-12 19:31:38,755 [INFO] Argument:325 - Argument : Statevalue: null
+2026-06-12 19:31:38,755 [INFO] Argument:335 - Argument : Statevalue: null
+2026-06-12 19:31:38,755 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-06-12 19:31:38,755 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-06-12 19:31:38,756 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:31:38,756 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:31:38,756 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:31:38,756 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:31:38,756 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:31:38,756 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:31:38,756 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:31:38,756 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:31:38,756 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-06-12 19:31:38,756 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-06-12 19:31:38,836 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp_save
+2026-06-12 19:31:38,897 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp
+2026-06-12 19:31:38,912 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp_save
+2026-06-12 19:31:38,973 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp
+2026-06-12 19:31:39,020 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp_save
+2026-06-12 19:31:39,081 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp
+2026-06-12 19:31:39,087 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp_save
+2026-06-12 19:31:39,146 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp
+2026-06-12 19:31:39,164 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c_save
+2026-06-12 19:31:39,234 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c
+2026-06-12 19:31:39,244 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h_save
+2026-06-12 19:31:39,307 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h
+2026-06-12 19:31:39,326 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c_save
+2026-06-12 19:31:39,415 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c
+2026-06-12 19:31:39,422 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp_save
+2026-06-12 19:31:39,477 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp
+2026-06-12 19:31:39,491 [INFO] CodeEngine:321 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h_save
+2026-06-12 19:31:39,561 [INFO] CodeEngine:345 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h
+2026-06-12 19:31:39,578 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-06-12 19:31:39,578 [WARN] CodeGenerator:4259 - IP not found : null
+2026-06-12 19:31:39,589 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h_save
+2026-06-12 19:31:39,659 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h
+2026-06-12 19:31:39,669 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c_save
+2026-06-12 19:31:39,780 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c
+2026-06-12 19:31:40,204 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 245mS.
+2026-06-12 19:31:40,208 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-06-12 19:31:40,283 [INFO] ConfigFileManager:1595 - The Die is : DIE413
+2026-06-12 19:31:40,891 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 683mS.
+2026-06-12 19:31:40,892 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-06-12 19:31:40,898 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-06-12 19:36:25,892 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 591707224 Bytes (907018240)
+2026-06-12 19:36:26,120 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 615298136 Bytes (907018240)
+2026-06-12 19:36:26,722 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 652524632 Bytes (907018240)
+2026-06-12 19:36:27,040 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM6_7
+2026-06-12 19:36:27,040 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-06-12 19:36:27,040 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-06-12 19:36:27,040 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-06-12 19:36:27,041 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-06-12 19:36:27,041 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DAC
+2026-06-12 19:36:27,041 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-06-12 19:36:27,042 [INFO] CodeGenerator:892 - code generatio: config db path: /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.common.mx_6.15.0.202507011659//db/
+2026-06-12 19:36:27,043 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-06-12 19:36:27,044 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:36:27,044 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:36:27,044 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:36:27,044 [INFO] Argument:325 - Argument : Initvalue: null
+2026-06-12 19:36:27,044 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:36:27,044 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:36:27,044 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:36:27,044 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:36:27,044 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:36:27,044 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:36:27,044 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:36:27,044 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:36:27,044 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:36:27,044 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:36:27,044 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:36:27,044 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:36:27,045 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:36:27,045 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:36:27,045 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:36:27,045 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:36:27,045 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:36:27,045 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:36:27,045 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:36:27,045 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:36:27,045 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:36:27,045 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-06-12 19:36:27,045 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-06-12 19:36:27,045 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-06-12 19:36:27,045 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-06-12 19:36:27,045 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-06-12 19:36:27,045 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-06-12 19:36:27,045 [INFO] Argument:325 - Argument : Statevalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:335 - Argument : Statevalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-06-12 19:36:27,046 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-06-12 19:36:27,125 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp_save
+2026-06-12 19:36:27,186 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp
+2026-06-12 19:36:27,203 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp_save
+2026-06-12 19:36:27,265 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp
+2026-06-12 19:36:27,331 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp_save
+2026-06-12 19:36:27,410 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp
+2026-06-12 19:36:27,417 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp_save
+2026-06-12 19:36:27,474 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp
+2026-06-12 19:36:27,491 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c_save
+2026-06-12 19:36:27,562 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c
+2026-06-12 19:36:27,572 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h_save
+2026-06-12 19:36:27,637 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h
+2026-06-12 19:36:27,656 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c_save
+2026-06-12 19:36:27,753 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c
+2026-06-12 19:36:27,760 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp_save
+2026-06-12 19:36:27,813 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp
+2026-06-12 19:36:27,828 [INFO] CodeEngine:321 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h_save
+2026-06-12 19:36:27,896 [INFO] CodeEngine:345 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h
+2026-06-12 19:36:27,914 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-06-12 19:36:27,914 [WARN] CodeGenerator:4259 - IP not found : null
+2026-06-12 19:36:27,923 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h_save
+2026-06-12 19:36:27,990 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h
+2026-06-12 19:36:28,000 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c_save
+2026-06-12 19:36:28,106 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c
+2026-06-12 19:36:28,525 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 250mS.
+2026-06-12 19:36:28,529 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-06-12 19:36:28,601 [INFO] ConfigFileManager:1595 - The Die is : DIE413
+2026-06-12 19:36:29,237 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 708mS.
+2026-06-12 19:36:29,238 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-06-12 19:36:29,245 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-06-12 19:36:32,677 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 763694808 Bytes (907018240)
+2026-06-12 19:36:32,896 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 787812056 Bytes (907018240)
+2026-06-12 19:36:33,458 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 340512416 Bytes (907018240)
+2026-06-12 19:36:33,725 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM6_7
+2026-06-12 19:36:33,725 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-06-12 19:36:33,725 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-06-12 19:36:33,725 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-06-12 19:36:33,725 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-06-12 19:36:33,725 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DAC
+2026-06-12 19:36:33,725 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-06-12 19:36:33,726 [INFO] CodeGenerator:892 - code generatio: config db path: /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.common.mx_6.15.0.202507011659//db/
+2026-06-12 19:36:33,728 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-06-12 19:36:33,728 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:36:33,728 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:36:33,728 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:36:33,728 [INFO] Argument:325 - Argument : Initvalue: null
+2026-06-12 19:36:33,728 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:36:33,728 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:36:33,728 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:36:33,728 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:36:33,728 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:36:33,728 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:36:33,728 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:36:33,728 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:36:33,728 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:36:33,729 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:36:33,729 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:36:33,729 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:36:33,729 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:36:33,729 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:36:33,729 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:36:33,729 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:36:33,729 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:36:33,729 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:36:33,729 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:36:33,729 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:36:33,729 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:36:33,729 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-06-12 19:36:33,729 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-06-12 19:36:33,729 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:325 - Argument : Statevalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:335 - Argument : Statevalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:36:33,730 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:36:33,731 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-06-12 19:36:33,731 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-06-12 19:36:33,798 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp_save
+2026-06-12 19:36:33,857 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp
+2026-06-12 19:36:33,874 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp_save
+2026-06-12 19:36:33,931 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp
+2026-06-12 19:36:33,970 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp_save
+2026-06-12 19:36:34,025 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp
+2026-06-12 19:36:34,031 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp_save
+2026-06-12 19:36:34,083 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp
+2026-06-12 19:36:34,099 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c_save
+2026-06-12 19:36:34,166 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c
+2026-06-12 19:36:34,175 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h_save
+2026-06-12 19:36:34,235 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h
+2026-06-12 19:36:34,254 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c_save
+2026-06-12 19:36:34,350 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c
+2026-06-12 19:36:34,356 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp_save
+2026-06-12 19:36:34,411 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp
+2026-06-12 19:36:34,425 [INFO] CodeEngine:321 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h_save
+2026-06-12 19:36:34,491 [INFO] CodeEngine:345 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h
+2026-06-12 19:36:34,506 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-06-12 19:36:34,506 [WARN] CodeGenerator:4259 - IP not found : null
+2026-06-12 19:36:34,516 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h_save
+2026-06-12 19:36:34,582 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h
+2026-06-12 19:36:34,592 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c_save
+2026-06-12 19:36:34,693 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c
+2026-06-12 19:36:35,110 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 253mS.
+2026-06-12 19:36:35,114 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-06-12 19:36:35,184 [INFO] ConfigFileManager:1595 - The Die is : DIE413
+2026-06-12 19:36:35,770 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 657mS.
+2026-06-12 19:36:35,771 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-06-12 19:36:35,777 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-06-12 19:37:52,408 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 440130928 Bytes (907018240)
+2026-06-12 19:37:52,637 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 464248176 Bytes (907018240)
+2026-06-12 19:37:53,172 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 503045488 Bytes (907018240)
+2026-06-12 19:37:53,499 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM6_7
+2026-06-12 19:37:53,499 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-06-12 19:37:53,500 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-06-12 19:37:53,500 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-06-12 19:37:53,500 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-06-12 19:37:53,500 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DAC
+2026-06-12 19:37:53,500 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-06-12 19:37:53,501 [INFO] CodeGenerator:892 - code generatio: config db path: /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.common.mx_6.15.0.202507011659//db/
+2026-06-12 19:37:53,503 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-06-12 19:37:53,503 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:37:53,503 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:37:53,503 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:37:53,503 [INFO] Argument:325 - Argument : Initvalue: null
+2026-06-12 19:37:53,503 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:37:53,503 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:37:53,503 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:37:53,504 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:37:53,504 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:37:53,504 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:37:53,504 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:37:53,504 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:37:53,504 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:37:53,504 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:37:53,504 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:37:53,504 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:37:53,504 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:37:53,504 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:37:53,504 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:37:53,504 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:37:53,504 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:37:53,504 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:37:53,504 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:37:53,505 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:325 - Argument : Statevalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:335 - Argument : Statevalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:37:53,505 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:37:53,506 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:37:53,506 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:37:53,506 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:37:53,506 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-06-12 19:37:53,506 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-06-12 19:37:53,586 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp_save
+2026-06-12 19:37:53,645 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp
+2026-06-12 19:37:53,662 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp_save
+2026-06-12 19:37:53,726 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp
+2026-06-12 19:37:53,780 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp_save
+2026-06-12 19:37:53,840 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp
+2026-06-12 19:37:53,846 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp_save
+2026-06-12 19:37:53,900 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp
+2026-06-12 19:37:53,917 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c_save
+2026-06-12 19:37:53,986 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c
+2026-06-12 19:37:53,994 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h_save
+2026-06-12 19:37:54,058 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h
+2026-06-12 19:37:54,077 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c_save
+2026-06-12 19:37:54,164 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c
+2026-06-12 19:37:54,171 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp_save
+2026-06-12 19:37:54,224 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp
+2026-06-12 19:37:54,239 [INFO] CodeEngine:321 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h_save
+2026-06-12 19:37:54,307 [INFO] CodeEngine:345 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h
+2026-06-12 19:37:54,323 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-06-12 19:37:54,323 [WARN] CodeGenerator:4259 - IP not found : null
+2026-06-12 19:37:54,333 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h_save
+2026-06-12 19:37:54,398 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h
+2026-06-12 19:37:54,409 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c_save
+2026-06-12 19:37:54,516 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c
+2026-06-12 19:37:54,924 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 240mS.
+2026-06-12 19:37:54,928 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-06-12 19:37:55,002 [INFO] ConfigFileManager:1595 - The Die is : DIE413
+2026-06-12 19:37:55,702 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 775mS.
+2026-06-12 19:37:55,703 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-06-12 19:37:55,710 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-06-12 19:39:31,526 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 395136504 Bytes (907018240)
+2026-06-12 19:39:36,353 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 371774384 Bytes (907018240)
+2026-06-12 19:40:20,732 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 485517104 Bytes (907018240)
+2026-06-12 19:40:20,958 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 509634352 Bytes (907018240)
+2026-06-12 19:40:21,269 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 539520816 Bytes (907018240)
+2026-06-12 19:40:21,594 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM6_7
+2026-06-12 19:40:21,595 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-06-12 19:40:21,595 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-06-12 19:40:21,595 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-06-12 19:40:21,595 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-06-12 19:40:21,595 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DAC
+2026-06-12 19:40:21,595 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-06-12 19:40:21,596 [INFO] CodeGenerator:892 - code generatio: config db path: /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.common.mx_6.15.0.202507011659//db/
+2026-06-12 19:40:21,597 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-06-12 19:40:21,598 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:40:21,598 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:40:21,598 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:40:21,598 [INFO] Argument:325 - Argument : Initvalue: null
+2026-06-12 19:40:21,598 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:40:21,598 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:40:21,598 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:40:21,598 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:40:21,598 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:40:21,598 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:40:21,598 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:40:21,598 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:40:21,598 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:40:21,598 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:40:21,598 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:40:21,598 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:40:21,599 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:40:21,599 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:40:21,599 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:40:21,599 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:40:21,599 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:40:21,599 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:40:21,599 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:40:21,599 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:40:21,599 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:40:21,599 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-06-12 19:40:21,599 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-06-12 19:40:21,599 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-06-12 19:40:21,599 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:325 - Argument : Statevalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:335 - Argument : Statevalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:40:21,600 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:40:21,601 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:40:21,601 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:40:21,601 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-06-12 19:40:21,601 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-06-12 19:40:21,676 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp_save
+2026-06-12 19:40:21,735 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp
+2026-06-12 19:40:21,750 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp_save
+2026-06-12 19:40:21,808 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp
+2026-06-12 19:40:21,851 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp_save
+2026-06-12 19:40:21,909 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp
+2026-06-12 19:40:21,915 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp_save
+2026-06-12 19:40:21,972 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp
+2026-06-12 19:40:21,988 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c_save
+2026-06-12 19:40:22,058 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c
+2026-06-12 19:40:22,067 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h_save
+2026-06-12 19:40:22,129 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h
+2026-06-12 19:40:22,146 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c_save
+2026-06-12 19:40:22,233 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c
+2026-06-12 19:40:22,240 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp_save
+2026-06-12 19:40:22,296 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp
+2026-06-12 19:40:22,311 [INFO] CodeEngine:321 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h_save
+2026-06-12 19:40:22,382 [INFO] CodeEngine:345 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h
+2026-06-12 19:40:22,400 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-06-12 19:40:22,400 [WARN] CodeGenerator:4259 - IP not found : null
+2026-06-12 19:40:22,411 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h_save
+2026-06-12 19:40:22,479 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h
+2026-06-12 19:40:22,489 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c_save
+2026-06-12 19:40:22,596 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c
+2026-06-12 19:40:22,999 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 233mS.
+2026-06-12 19:40:23,003 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-06-12 19:40:23,076 [INFO] ConfigFileManager:1595 - The Die is : DIE413
+2026-06-12 19:40:23,699 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 695mS.
+2026-06-12 19:40:23,699 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-06-12 19:40:23,706 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-06-12 19:40:26,888 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 435082928 Bytes (907018240)
+2026-06-12 19:40:27,104 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 459200176 Bytes (907018240)
+2026-06-12 19:40:27,396 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 488038064 Bytes (907018240)
+2026-06-12 19:40:27,660 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM6_7
+2026-06-12 19:40:27,660 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-06-12 19:40:27,661 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-06-12 19:40:27,661 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-06-12 19:40:27,661 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-06-12 19:40:27,661 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DAC
+2026-06-12 19:40:27,661 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-06-12 19:40:27,662 [INFO] CodeGenerator:892 - code generatio: config db path: /opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.common.mx_6.15.0.202507011659//db/
+2026-06-12 19:40:27,663 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-06-12 19:40:27,663 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:40:27,663 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:40:27,664 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream5
+2026-06-12 19:40:27,664 [INFO] Argument:325 - Argument : Initvalue: null
+2026-06-12 19:40:27,664 [INFO] Argument:327 - 	 sub Args: 
+2026-06-12 19:40:27,664 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:40:27,664 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_7
+2026-06-12 19:40:27,664 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:40:27,664 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-06-12 19:40:27,664 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:40:27,664 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-06-12 19:40:27,664 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:40:27,664 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-06-12 19:40:27,664 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:40:27,664 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2026-06-12 19:40:27,664 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:40:27,664 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2026-06-12 19:40:27,664 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:40:27,664 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2026-06-12 19:40:27,665 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:40:27,665 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2026-06-12 19:40:27,665 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:40:27,665 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2026-06-12 19:40:27,665 [INFO] Argument:325 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:335 - Argument : FIFOThresholdvalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:325 - Argument : MemBurstvalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:335 - Argument : MemBurstvalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:325 - Argument : PeriphBurstvalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:335 - Argument : PeriphBurstvalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:325 - Argument : Statevalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:335 - Argument : Statevalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:40:27,665 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-06-12 19:40:27,666 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:40:27,666 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-06-12 19:40:27,666 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:40:27,666 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2026-06-12 19:40:27,666 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:40:27,666 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-06-12 19:40:27,666 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-06-12 19:40:27,666 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-06-12 19:40:27,733 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp_save
+2026-06-12 19:40:27,788 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/license.tmp
+2026-06-12 19:40:27,801 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp_save
+2026-06-12 19:40:27,857 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/gpio.tmp
+2026-06-12 19:40:27,892 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp_save
+2026-06-12 19:40:27,947 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma.tmp
+2026-06-12 19:40:27,953 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp_save
+2026-06-12 19:40:28,009 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/dma_GV.tmp
+2026-06-12 19:40:28,024 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c_save
+2026-06-12 19:40:28,092 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_it.c
+2026-06-12 19:40:28,101 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h_save
+2026-06-12 19:40:28,162 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_it.h
+2026-06-12 19:40:28,180 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c_save
+2026-06-12 19:40:28,264 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/stm32f4xx_hal_msp.c
+2026-06-12 19:40:28,271 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp_save
+2026-06-12 19:40:28,324 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/MXTmpFiles/system.tmp
+2026-06-12 19:40:28,338 [INFO] CodeEngine:321 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h_save
+2026-06-12 19:40:28,404 [INFO] CodeEngine:345 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/stm32f4xx_hal_conf.h
+2026-06-12 19:40:28,419 [WARN] IPConfigManager:3811 - IP not found : TIM
+2026-06-12 19:40:28,419 [WARN] CodeGenerator:4259 - IP not found : null
+2026-06-12 19:40:28,429 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h_save
+2026-06-12 19:40:28,493 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Inc/main.h
+2026-06-12 19:40:28,504 [INFO] CodeEngine:265 - oldGeneratedFile, /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c_save
+2026-06-12 19:40:28,605 [INFO] CodeEngine:289 - Generated code: /mnt/LaptopStorage/Projects/electronic-load-curve-tracer/firmware/f4-test-DAC-fine-sine/Core/Src/main.c
+2026-06-12 19:40:29,008 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 243mS.
+2026-06-12 19:40:29,012 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-06-12 19:40:29,083 [INFO] ConfigFileManager:1595 - The Die is : DIE413
+2026-06-12 19:40:29,685 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 672mS.
+2026-06-12 19:40:29,686 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-06-12 19:40:29,692 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.

@@ -16,3 +16,6 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2026-06-12 17:26:48.605
 !MESSAGE Indexed 'f4-test-DAC' (19 sources, 81 headers) in 2.6 sec: 4,431 declarations; 17,856 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.009%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-06-12 18:23:17.531
+!MESSAGE Indexed 'f4-test-DAC-fine-sine' (19 sources, 81 headers) in 1.21 sec: 4,431 declarations; 17,856 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.009%)
