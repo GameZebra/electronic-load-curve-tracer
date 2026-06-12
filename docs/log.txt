@@ -1,0 +1,4 @@
+12.06 - learned how first order passive filters work. different dac configurations,
+made a dac demo and used an osciloscope to compare it to filtered pwm,
+made plans for how will i implement the iv curve following 
+
