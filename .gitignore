@@ -1,0 +1,12 @@
+# STM32CubeIDE workspace metadata
+firmware/.metadata/
+
+# Build outputs
+Debug/
+Release/
+
+# Eclipse/CDT files
+*.pdom
+
+# Logs
+*.log
