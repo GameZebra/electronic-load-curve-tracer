@@ -3,6 +3,13 @@ firmware/.metadata/
 
 # Build outputs
 Debug/
+*.o
+*.d
+*.su
+*.cyclo
+*.map
+*.elf
+*.list
 Release/
 
 # Eclipse/CDT files
@@ -10,3 +17,4 @@ Release/
 
 # Logs
 *.log
+
