@@ -40,6 +40,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+
 DAC_HandleTypeDef hdac;
 DMA_HandleTypeDef hdma_dac1;
 
@@ -48,7 +50,7 @@ TIM_HandleTypeDef htim6;
 DMA_HandleTypeDef hdma_tim1_ch4_trig_com;
 
 /* USER CODE BEGIN PV */
-
+uint16_t adcValue =0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,6 +60,7 @@ static void MX_DMA_Init(void);
 static void MX_DAC_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_TIM1_Init(void);
+static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -100,34 +103,42 @@ int main(void)
   MX_DAC_Init();
   MX_TIM6_Init();
   MX_TIM1_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
 
   // Start DAC
   //HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
 
-
-  const uint16_t sine_table[SINE_SAMPLES] =
-  {
-  2048, 2447, 2831, 3185, 3495, 3750, 3939, 4056,
-  4095, 4056, 3939, 3750, 3495, 3185, 2831, 2447,
-  2048, 1649, 1265,  911,  601,  346,  157,   40,
-  0,    40,   157,  346,  601,  911, 1265, 1649
-  };
+// sine test
+//  const uint16_t sine_table[SINE_SAMPLES] =
+//  {
+//  2048, 2447, 2831, 3185, 3495, 3750, 3939, 4056,
+//  4095, 4056, 3939, 3750, 3495, 3185, 2831, 2447,
+//  2048, 1649, 1265,  911,  601,  346,  157,   40,
+//  0,    40,   157,  346,  601,  911, 1265, 1649
+//  };
 
   // Start DAC with DMA
-  HAL_DAC_Start_DMA(&hdac,
-                    DAC_CHANNEL_1,
-                    (uint32_t*)sine_table,
-                    SINE_SAMPLES,
-                    DAC_ALIGN_12B_R);
+//  HAL_DAC_Start_DMA(&hdac,
+//                    DAC_CHANNEL_1,
+//                    (uint32_t*)sine_table,
+//                    SINE_SAMPLES,
+//                    DAC_ALIGN_12B_R);
 
   // Start TIM6 (this triggers DAC updates)
-  HAL_TIM_Base_Start(&htim6);
+//  HAL_TIM_Base_Start(&htim6);
 
 
   //__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_4, 250);
-  HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_4, (uint32_t*)sine_table, SINE_SAMPLES);
 
+  //sine test
+//  HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_4, (uint32_t*)sine_table, SINE_SAMPLES);
+
+  HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_4);
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_4, 250);
+  HAL_TIM_Base_Start(&htim6);
+  HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
+  HAL_ADC_Start(&hadc1);
 
   /* USER CODE END 2 */
 
@@ -135,6 +146,23 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+	  HAL_ADC_Start(&hadc1);
+	  if (HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY) == HAL_OK)
+	  {
+		  // Read the ADC Value
+		  adcValue = HAL_ADC_GetValue(&hadc1);
+		  HAL_DAC_SetValue(&hdac, DAC1_CHANNEL_1, DAC_ALIGN_8B_R, adcValue);
+		  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_4, adcValue);
+	  }
+	  HAL_ADC_Stop(&hadc1);
+
+
+	  //HAL_ADC_PollForConversion(&hadc1, 100);
+
+
+
+
 	  // software table defined sinewave
 //	    for (int i = 0; i < 32; i++)
 //	    {
@@ -194,6 +222,58 @@ void SystemClock_Config(void)
 }
 
 /**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+
+  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
+  hadc1.Init.Resolution = ADC_RESOLUTION_8B;
+  hadc1.Init.ScanConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_5;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
+}
+
+/**
   * @brief DAC Initialization Function
   * @param None
   * @retval None
@@ -222,7 +302,7 @@ static void MX_DAC_Init(void)
   /** DAC channel OUT1 config
   */
   sConfig.DAC_Trigger = DAC_TRIGGER_T6_TRGO;
-  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
+  sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_DISABLE;
   if (HAL_DAC_ConfigChannel(&hdac, &sConfig, DAC_CHANNEL_1) != HAL_OK)
   {
     Error_Handler();
@@ -256,7 +336,7 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 1;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 4096;
+  htim1.Init.Period = 255;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
