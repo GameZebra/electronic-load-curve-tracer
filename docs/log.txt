@@ -2,3 +2,7 @@
 made a dac demo and used an osciloscope to compare it to filtered pwm,
 made plans for how will i implement the iv curve following 
 
+17.06 - made test with DAC and PWM + RC filter
+the RC filter is tuned enough to be used as reference voltage for the control of the OP Amp
+
+
