@@ -5,4 +5,10 @@ made plans for how will i implement the iv curve following
 17.06 - made test with DAC and PWM + RC filter
 the RC filter is tuned enough to be used as reference voltage for the control of the OP Amp
 
+18.06 - the clock timers of the stm32f407vgt6 can be configured with imput frequency of up to 169 MHz.
+and there will be no ripple in the output signal of the RC filter. Probably there is something similar for the C0
+- i played a lot with DMA today. it seams you can use it to directly move data from a peripheral to another peripheral (with a lot of caution and conditions)
+- for a fast rounding of floating point numbers (int)([float_num]+0.5f)
+- i made flexible interupt based analog voltage ramp with steps, that can easily be configured using varibales like max voltage and nuber of steps
+
 
