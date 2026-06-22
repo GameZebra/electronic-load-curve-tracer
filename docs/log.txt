@@ -11,4 +11,9 @@ and there will be no ripple in the output signal of the RC filter. Probably ther
 - for a fast rounding of floating point numbers (int)([float_num]+0.5f)
 - i made flexible interupt based analog voltage ramp with steps, that can easily be configured using varibales like max voltage and nuber of steps
 
-
+22.06 - swapped the swithcing MOSFET for a liner one
+(IRFZ44N swapped for IXTH30N60L2)
+- recreated the schematic (after the transport to Plovdiv and back)
+- added manual controll for the current
+- Solved the problem with the unknowingly low currnet. (the resistance of the jumpers and the wires was significant.)
+ 

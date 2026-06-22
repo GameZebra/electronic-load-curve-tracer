@@ -48,6 +48,7 @@ TIM_HandleTypeDef htim8;
 
 /* USER CODE BEGIN PV */
 
+
 uint16_t value = 0;
 uint8_t maxSteps = 255;
 uint8_t numSteps = 250;
@@ -58,7 +59,7 @@ uint8_t step = 1;
 uint8_t endDelay = 4; //steps of delay
 
 
-uint16_t adcValue = 0;
+uint8_t adcValue = 0;
 
 /* USER CODE END PV */
 
@@ -200,7 +201,7 @@ static void MX_ADC1_Init(void)
   */
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
-  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.Resolution = ADC_RESOLUTION_8B;
   hadc1.Init.ScanConvMode = DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
@@ -403,8 +404,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	else{
 		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_4, value);
 	}
-	value+=step;
-
+	//value+=step;
+	value = HAL_ADC_GetValue(&hadc1);
 }
 
 
