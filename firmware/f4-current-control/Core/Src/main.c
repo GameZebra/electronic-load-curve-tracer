@@ -60,7 +60,7 @@ uint8_t endDelay = 1; //steps of delay
 
 
 uint8_t adcValue = 0;
-uint8_t adcValues[24];
+uint8_t adcValues[12][2];
 
 /* USER CODE END PV */
 
