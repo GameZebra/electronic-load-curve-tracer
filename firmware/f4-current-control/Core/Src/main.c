@@ -56,10 +56,11 @@ float maxVoltage = 3.0;
 float targetVoltage = 3.0;
 uint8_t maxValue = 255;
 uint8_t step = 1;
-uint8_t endDelay = 4; //steps of delay
+uint8_t endDelay = 1; //steps of delay
 
 
 uint8_t adcValue = 0;
+uint8_t adcValues[12];
 
 /* USER CODE END PV */
 
@@ -117,7 +118,15 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim8);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
 
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&adcValue, 1);
+//  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&adcValue, 1);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adcValues, 12);
+
+
+  // var init test measurments
+  targetVoltage = 1;
+  numSteps = 10;
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -326,7 +335,7 @@ static void MX_TIM8_Init(void)
   htim8.Instance = TIM8;
   htim8.Init.Prescaler = 48-1;
   htim8.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim8.Init.Period = 10000;
+  htim8.Init.Period = 20000;
   htim8.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim8.Init.RepetitionCounter = 0;
   htim8.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -404,8 +413,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	else{
 		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_4, value);
 	}
-	//value+=step;
-	value = HAL_ADC_GetValue(&hadc1);
+	value+=step;
+	//value = HAL_ADC_GetValue(&hadc1);
 }
 
 
