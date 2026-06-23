@@ -17,3 +17,9 @@ and there will be no ripple in the output signal of the RC filter. Probably ther
 - added manual controll for the current
 - Solved the problem with the unknowingly low currnet. (the resistance of the jumpers and the wires was significant.)
  
+223.06 - dma on more than one channel
+
+
+TODO: - test how fast can go to get the values from the ADC
+
+
