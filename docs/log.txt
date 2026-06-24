@@ -17,7 +17,12 @@ and there will be no ripple in the output signal of the RC filter. Probably ther
 - added manual controll for the current
 - Solved the problem with the unknowingly low currnet. (the resistance of the jumpers and the wires was significant.)
  
-223.06 - dma on more than one channel
+23.06 - dma on more than one channel
+
+24.06 - did ADC DMA and measured the voltage drop on two channels
+	- when i added the second channel (paralel system of OpAmp and a MOSFET) there were some unknown oscilations
+	- I managed to fry the MCU ... (and I don't know why...)
+
 
 
 TODO: - test how fast can go to get the values from the ADC
