@@ -23,6 +23,11 @@ and there will be no ripple in the output signal of the RC filter. Probably ther
 	- when i added the second channel (paralel system of OpAmp and a MOSFET) there were some unknown oscilations
 	- I managed to fry the MCU ... (and I don't know why...)
 
+25.06	- I tested the MCU fully. when i read the mcu with STM32CubeProgrammer  in the tab that shows the securty level it is nither of the options.
+the state is FF witch is invalid and i can't write anything to chip (and it does nothing so it is as good as dead). I orderd new MCUs and will try to revive the Discovery board this way.
+	- I was researching how did i fry the board. The most likely reason is when the MOSFET became unstable the dI/dt became large and thet combined with parasitic inductions created large voltage drop through the ADC withch fried the MCU
+	- I reaserched how should i protect the ADC. creating an RC filter (the series resistor will limit the current)
+and either clamping diodes to Vcc and GND (this only works if there are Vcc and Ground (the MCU is powerd)) or clamping Zenner diode
 
 
 TODO: - test how fast can go to get the values from the ADC
