@@ -17,9 +17,10 @@ and there will be no ripple in the output signal of the RC filter. Probably ther
 - added manual controll for the current
 - Solved the problem with the unknowingly low currnet. (the resistance of the jumpers and the wires was significant.)
  
-23.06 - dma on more than one channel
+23.06	- dma on more than one channel
 
-24.06 - did ADC DMA and measured the voltage drop on two channels
+24.06	- I did big research on what is the propper way to attach MOSFETS to a heatsink and ordered one from Comet.bg
+	- did ADC DMA and measured the voltage drop on two channels
 	- when i added the second channel (paralel system of OpAmp and a MOSFET) there were some unknown oscilations
 	- I managed to fry the MCU ... (and I don't know why...)
 
@@ -29,6 +30,8 @@ the state is FF witch is invalid and i can't write anything to chip (and it does
 	- I reaserched how should i protect the ADC. creating an RC filter (the series resistor will limit the current)
 and either clamping diodes to Vcc and GND (this only works if there are Vcc and Ground (the MCU is powerd)) or clamping Zenner diode
 
+26.06	- Received the order from Comet
+	- (I'm not entirely sold on the parasitic inductions)
 
 TODO: - test how fast can go to get the values from the ADC
 
