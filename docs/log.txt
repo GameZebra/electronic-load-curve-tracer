@@ -33,6 +33,10 @@ and either clamping diodes to Vcc and GND (this only works if there are Vcc and 
 26.06	- Received the order from Comet
 	- (I'm not entirely sold on the parasitic inductions)
 
+28.06	- I drilled the radiator and threaded it.
+
+
+
 TODO: - test how fast can go to get the values from the ADC
 
 
