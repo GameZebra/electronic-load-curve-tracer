@@ -35,6 +35,7 @@ and either clamping diodes to Vcc and GND (this only works if there are Vcc and 
 
 28.06	- I drilled the radiator and threaded it.
 
+29.06	- I made myself an evaluation board using the MCU stm32c071CBTxN
 
 
 TODO: - test how fast can go to get the values from the ADC
