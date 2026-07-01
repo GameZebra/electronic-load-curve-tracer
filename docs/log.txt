@@ -39,6 +39,11 @@ and either clamping diodes to Vcc and GND (this only works if there are Vcc and 
 
 30.06	- tested the board with a blinky (didn't work)
 
+01.07	- Fixed the board:
+		- I fixed 2 bridged pins (not the reason why it wasnt starting)
+		- the package I'm using for the SMT32C071 has dedicated VDDIO2 pin witch powers almost half of the gpio pins, and withouth it receiving power manually I can't uppload code to the chip
+		- I should add one more larger capacitor between VDD and VSS but for now just uploading with slower speed did the tric
+
 
 
 TODO: - test how fast can go to get the values from the ADC
