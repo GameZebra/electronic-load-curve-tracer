@@ -44,11 +44,23 @@ ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
 
 TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim17;
 DMA_HandleTypeDef hdma_tim1_ch3;
 
 /* USER CODE BEGIN PV */
 
+uint16_t value = 0;
+uint8_t maxSteps = 255;
+uint8_t numSteps = 250;
+float maxVoltage = 3.0;
+float targetVoltage = 3.0;
+uint8_t maxValue = 255;
+uint8_t step = 1;
+uint8_t endDelay = 1; //steps of delay
+
+
 uint8_t adcValue = 0;
+uint8_t adcValues[12][2];
 
 /* USER CODE END PV */
 
@@ -58,6 +70,7 @@ static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_TIM17_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -99,6 +112,7 @@ int main(void)
   MX_DMA_Init();
   MX_TIM1_Init();
   MX_ADC1_Init();
+  MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
   // Run this ONCE during initialization, before starting the ADC
   if (HAL_ADCEx_Calibration_Start(&hadc1) != HAL_OK) {
@@ -106,21 +120,31 @@ int main(void)
       Error_Handler();
   }
 
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&adcValue, 1);
-  HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_3, (uint32_t *)&adcValue, 1);
+  //HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&adcValue, 1);
+  //HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_3, (uint32_t *)&adcValue, 1);
+
+
+  HAL_TIM_Base_Start_IT(&htim17);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 
   //HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
   //HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&(htim1.Instance->CCR3), 1);
+
+
+
+
+  // var init test measurments
+  targetVoltage = 1;
+  numSteps = 10;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, 1);
-	HAL_Delay(100);
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, 0);
-	HAL_Delay(100);
+	  maxValue = targetVoltage/maxVoltage * maxSteps;
+	  step = maxValue / numSteps;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -306,6 +330,38 @@ static void MX_TIM1_Init(void)
 }
 
 /**
+  * @brief TIM17 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM17_Init(void)
+{
+
+  /* USER CODE BEGIN TIM17_Init 0 */
+
+  /* USER CODE END TIM17_Init 0 */
+
+  /* USER CODE BEGIN TIM17_Init 1 */
+
+  /* USER CODE END TIM17_Init 1 */
+  htim17.Instance = TIM17;
+  htim17.Init.Prescaler = 47;
+  htim17.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim17.Init.Period = 1000;
+  htim17.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim17.Init.RepetitionCounter = 0;
+  htim17.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim17) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM17_Init 2 */
+
+  /* USER CODE END TIM17_Init 2 */
+
+}
+
+/**
   * Enable DMA controller clock
   */
 static void MX_DMA_Init(void)
@@ -352,6 +408,34 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+
+
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+
+
+	// compenstation for the capacitor discharge
+	if (value > maxValue && value < maxValue+ endDelay*step){
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0);
+		//adcValue = 0;
+	}
+	else if (value >= maxValue+ endDelay*step)
+	{
+		value =0;
+	}
+	else{
+		__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, value);
+		//adcValue = value;
+	}
+	value+=step;
+	//value = HAL_ADC_GetValue(&hadc1);
+}
+
+
+
+
+
 
 /* USER CODE END 4 */
 
