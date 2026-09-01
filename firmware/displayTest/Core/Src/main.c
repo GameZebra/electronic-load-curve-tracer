@@ -149,7 +149,7 @@ int main(void)
   HAL_Delay(100);
   ILI9341_FillScreen(ILI9341_BLACK); // Трябва да изчисти шума и да направи екрана черен
   HAL_Delay(100);
-  ILI9341_FillRectangle(50, 50, 100, 100, ILI9341_RED); // Червен квадрат в центъра
+  ILI9341_FillRectangle(50, 50, 100, 100, ILI9341_GREEN); // Червен квадрат в центъра
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -182,9 +182,9 @@ int main(void)
         int y_graph = 190 - (int)(simulated_voltage * 8);
         if(y_graph < 10) y_graph = 10;
 
-        ILI9341_DrawPixel(x_graph, y_graph, ILI9341_YELLOW);
+        ILI9341_DrawPixel(x_graph, y_graph, ILI9341_RED);
         // Правим точката по-дебела за да се вижда (3x3 пиксела)
-        ILI9341_FillRectangle(x_graph-1, y_graph-1, 3, 3, ILI9341_YELLOW);
+        ILI9341_FillRectangle(x_graph-1, y_graph-1, 3, 3, ILI9341_RED);
 
         x_graph += 2; // Местим се надясно по оста X
 
