@@ -57,6 +57,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define ILI9341_RES_Pin GPIO_PIN_3
+#define ILI9341_RES_GPIO_Port GPIOA
+#define ILI9341_DC_Pin GPIO_PIN_4
+#define ILI9341_DC_GPIO_Port GPIOA
+#define ILI9341_CS_Pin GPIO_PIN_5
+#define ILI9341_CS_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
