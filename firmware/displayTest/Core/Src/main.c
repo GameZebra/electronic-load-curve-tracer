@@ -111,6 +111,13 @@ typedef struct {
     const char *label;
 } MenuItem_t;
 
+// Тип за избор на визуализация
+typedef enum {
+    GRAPH_MODE_POINTS = 0,
+    GRAPH_MODE_LINES  = 1
+} GraphMode_t;
+
+
 static const MenuItem_t menu_items[MENU_COUNT] = {
     {  5, 215, 75, 18, " LOAD OFF " },
     { 85, 215, 60, 18, " SWEEP  " },
@@ -312,6 +319,7 @@ int main(void)
   ILI9341_FillScreen(ILI9341_BLACK); // Трябва да изчисти шума и да направи екрана черен
   HAL_Delay(100);
 
+  GraphMode_t current_graph_mode = GRAPH_MODE_LINES;
   Draw_Dashboard_Static(0);
 
 
@@ -325,24 +333,31 @@ int main(void)
     	        static int prev_x = -1;
     	        static int prev_y = -1;
 
-    	        // 1. Симулираме промяна на данните от ADC-то
-    	        simulated_voltage += SWEEP_STEP_V;
+    	        // 1. Симулираме стъпка на измерване (Соларен панел 20W: Voc = 20V, Vmp = 17.5V)
+    	                simulated_voltage += SWEEP_STEP_V;
 
-    	        // Проверка за превъртане на сканирането
-    	        if (simulated_voltage > 30.0f) {
-    	            simulated_voltage = 0.0f;
-    	            simulated_current = 0.0f;
-    	            prev_x = -1; // Рестартираме историята, за да не свърже края с началото
-    	            prev_y = -1;
-    	            Clear_Graph_Area();
-    	        } else {
-    	            // За линейна зависимост (0..30V -> 0..3.0A):
-//    	            simulated_current = simulated_voltage * 0.1f;
+    	                if (simulated_voltage > 20.0f) {
+    	                    simulated_voltage = 0.0f;
+    	                    simulated_current = 0.0f;
+    	                    prev_x = -1;
+    	                    prev_y = -1;
+    	                    Clear_Graph_Area();
+    	                } else {
+    	                    // Ток на късо съединение (Isc) при 0V около 1.15A
+    	                    float isc = 1.15f;
 
-    	            // Ако искате нелинейна/диодна крива, достигаща точно 3.0A при 30V, използвайте:
-    	             simulated_current = (simulated_voltage * simulated_voltage) / 300.0f;
-    	        }
-
+    	                    if (simulated_voltage <= 17.5f) {
+    	                        // В първата част токът е почти постоянен (поведение на идеален токов източник)
+    	                        // С лек спад, за да изглежда реалистично до MPP точката
+    	                        float factor = simulated_voltage / 17.5f;
+    	                        simulated_current = isc * (1.0f - 0.05f * (factor * factor));
+    	                    } else {
+    	                        // След MPP (17.5V до 20V) токът лавинообразно спада до 0 при отворена верига (Voc = 20V)
+    	                        float remaining_ratio = (20.0f - simulated_voltage) / (20.0f - 17.5f);
+    	                        // Използваме степен за остра крива към 0
+    	                        simulated_current = isc * 0.95f * (remaining_ratio * remaining_ratio * remaining_ratio);
+    	                    }
+    	                }
     	        // 2. Опресняваме текста вдясно (Voltage, Current, Power)
     	        Update_Values(simulated_voltage, simulated_current);
 
@@ -364,18 +379,32 @@ int main(void)
     	        if (y_graph < GRAPH_PLOT_Y) y_graph = GRAPH_PLOT_Y;
     	        if (y_graph > y_zero) y_graph = y_zero;
 
-    	        // 4. Чертане на непрекъсната крива
-    	        if (prev_x != -1 && prev_y != -1) {
-    	            // Свързваме предишната точка с текущата с линия
-    	            ILI9341_DrawLine(prev_x, prev_y, x_graph, y_graph, ILI9341_GREEN);
-    	        } else {
-    	            // Първа точка след изчистване (начало на координатната система)
-    	            ILI9341_DrawPixel(x_graph, y_graph, ILI9341_GREEN);
-    	        }
+    	        // 4. Чертане според избрания режим
+    	                if (current_graph_mode == GRAPH_MODE_LINES) {
+    	                    // Режим ЛИНИИ (линейна интерполация между съседни точки)
+    	                    if (prev_x != -1 && prev_y != -1) {
+    	                        ILI9341_DrawLine(prev_x, prev_y, x_graph, y_graph, ILI9341_GREEN);
+    	                    } else {
+    	                        ILI9341_DrawPixel(x_graph, y_graph, ILI9341_GREEN);
+    	                    }
+    	                } else {
+    	                    // Режим ТОЧКИ (правоъгълен маркер с отрязване при осите)
+    	                    int x_start = (x_graph - POINT_RADIUS < GRAPH_PLOT_X) ? GRAPH_PLOT_X : (x_graph - POINT_RADIUS);
+    	                    int y_start = (y_graph - POINT_RADIUS < GRAPH_PLOT_Y) ? GRAPH_PLOT_Y : (y_graph - POINT_RADIUS);
+    	                    int x_end   = (x_graph + POINT_RADIUS > GRAPH_AXIS_X_MAX - 1) ? (GRAPH_AXIS_X_MAX - 1) : (x_graph + POINT_RADIUS);
+    	                    int y_end   = (y_graph + POINT_RADIUS > y_zero) ? y_zero : (y_graph + POINT_RADIUS);
 
-    	        // Запомняме текущата позиция за следващата итерация
-    	        prev_x = x_graph;
-    	        prev_y = y_graph;
+    	                    int w = x_end - x_start + 1;
+    	                    int h = y_end - y_start + 1;
+
+    	                    if (w > 0 && h > 0) {
+    	                        ILI9341_FillRectangle(x_start, y_start, w, h, ILI9341_GREEN);
+    	                    }
+    	                }
+
+    	                // Запомняме текущата точка за линията в следващия такт
+    	                prev_x = x_graph;
+    	                prev_y = y_graph;
 
     	        // 5. Пауза и обработка на менюто
     	        HAL_Delay(10);
