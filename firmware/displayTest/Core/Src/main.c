@@ -26,6 +26,7 @@
 #include "ili9341.h"
 #include "fonts.h"
 #include <stdio.h> // За sprintf
+#include <stdlib.h> // За функцията abs()
 
 /* USER CODE END Includes */
 
@@ -36,6 +37,28 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+// ==============================================================================
+// ГЕОМЕТРИЯ НА РАБОТНОТО ПОЛЕ (Вътрешна видима част за графиката)
+// ==============================================================================
+#define GRAPH_PLOT_X        31    // Начало на чертането по X (вътрешна част)
+#define GRAPH_PLOT_Y        16    // Начало на чертането по Y (вътрешна част)
+#define GRAPH_PLOT_WIDTH   179    // Полезна ширина
+#define GRAPH_PLOT_HEIGHT  164    // Полезна височина
+
+// Изчислени координати на външните оси/рамка:
+#define GRAPH_AXIS_X_MIN   (GRAPH_PLOT_X - 1)                      // 30  - Лява вертикална ос (I)
+#define GRAPH_AXIS_X_MAX   (GRAPH_PLOT_X + GRAPH_PLOT_WIDTH)      // 210 - Дясна вертикална рамка
+#define GRAPH_AXIS_Y_MIN   (GRAPH_PLOT_Y - 1)                      // 15  - Горна хоризонтална рамка
+#define GRAPH_AXIS_Y_MAX   (GRAPH_PLOT_Y + GRAPH_PLOT_HEIGHT)     // 180 - Долна хоризонтална ос (U)
+
+#define GRAPH_FRAME_W      (GRAPH_AXIS_X_MAX - GRAPH_AXIS_X_MIN + 1) // 181 px пълна ширина с рамката
+#define GRAPH_FRAME_H      (GRAPH_AXIS_Y_MAX - GRAPH_AXIS_Y_MIN + 1) // 166 px пълна височина с рамката
+
+#define POINT_RADIUS  1  // 0 = 1x1 пиксел; 1 = 3x3 пиксела; 2 = 5x5 пиксела
+
+
+#define SWEEP_STEP_V   0.8
 
 /* USER CODE END PD */
 
@@ -55,6 +78,7 @@ extern SPI_HandleTypeDef hspi1; // Указваме на библиотекат�
 float simulated_voltage = 0.0;
 float simulated_current = 0.0;
 int selected_menu = 0; // 0=LOAD OFF, 1=SWEEP, 2=SET I, 3=SETTINGS
+int selected_menu_old = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -67,27 +91,128 @@ static void MX_SPI1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void Draw_Dashboard_Static(void) {
-    ILI9341_FillScreen(ILI9341_BLACK);
+#include <stdint.h>
 
-    // Чертане на рамка около графиката чрез тънки правоъгълници (дебелина 1 пиксел)
-    ILI9341_FillRectangle(5, 5, 205, 1, ILI9341_WHITE);   // Горна хоризонтална
-    ILI9341_FillRectangle(5, 195, 205, 1, ILI9341_WHITE); // Долна хоризонтална
-    ILI9341_FillRectangle(5, 5, 1, 190, ILI9341_WHITE);   // Лява вертикална
-    ILI9341_FillRectangle(210, 5, 1, 191, ILI9341_WHITE); // Дясна вертикална
+// Дефиниции за менюто
+typedef enum {
+    MENU_LOAD = 0,
+    MENU_SWEEP,
+    MENU_SET_I,
+    MENU_SETTINGS,
+    MENU_COUNT
+} MenuIndex_t;
 
-    // Текст вдясно (Статични етикети) - използваме ILI9341_WriteString
-    ILI9341_WriteString(220, 10, "Voltage:", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
-    ILI9341_WriteString(220, 70, "Current:", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
-    ILI9341_WriteString(220, 130, "Power:", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
+// Структура за бутоните от менюто
+typedef struct {
+    uint16_t x;
+    uint16_t y;
+    uint16_t w;
+    uint16_t h;
+    const char *label;
+} MenuItem_t;
 
-    // Долно меню - статичен текст
-    ILI9341_WriteString(10, 210, "[LOAD OFF]", Font_7x10, ILI9341_WHITE, ILI9341_BLACK);
-    ILI9341_WriteString(90, 210, "[SWEEP]", Font_7x10, ILI9341_WHITE, ILI9341_BLACK);
-    ILI9341_WriteString(150, 210, "[SET I]", Font_7x10, ILI9341_WHITE, ILI9341_BLACK);
-    ILI9341_WriteString(210, 210, "[SETTINGS]", Font_7x10, ILI9341_WHITE, ILI9341_BLACK);
+static const MenuItem_t menu_items[MENU_COUNT] = {
+    {  5, 215, 75, 18, " LOAD OFF " },
+    { 85, 215, 60, 18, " SWEEP  " },
+    {150, 215, 60, 18, " SET I  " },
+    {215, 215, 95, 18, "  SETTINGS " } // да добавя скорост на измерване бързо средно финно, (евентуално размер на точката)
+};
+
+// Функция за изчертаване на единичен бутон
+void Draw_Menu_Button(uint8_t index, uint8_t is_selected) {
+    const MenuItem_t *btn = &menu_items[index];
+
+    // Инвертиране на цветовете при селекция
+    uint16_t bg_color   = is_selected ? ILI9341_WHITE : ILI9341_BLACK;
+    uint16_t text_color = is_selected ? ILI9341_BLACK : ILI9341_LIGHTGREY;
+    uint16_t border_col = is_selected ? ILI9341_YELLOW : ILI9341_DARKGREY;
+
+    // Фон на бутона
+    ILI9341_FillRectangle(btn->x, btn->y, btn->w, btn->h, bg_color);
+
+    // Текст (центриран по височина с офсет 4px)
+    ILI9341_WriteString(btn->x + 4, btn->y + 4, btn->label, Font_7x10, text_color, bg_color);
+
+    // Рамка около бутона
+    ILI9341_FillRectangle(btn->x, btn->y, btn->w, 1, border_col);                     // горе
+    ILI9341_FillRectangle(btn->x, btn->y + btn->h - 1, btn->w, 1, border_col);         // долу
+    ILI9341_FillRectangle(btn->x, btn->y, 1, btn->h, border_col);                     // ляво
+    ILI9341_FillRectangle(btn->x + btn->w - 1, btn->y, 1, btn->h, border_col);         // дясно
+
+
 }
 
+// Изчертаване на цялата навигационна лента
+void Update_Menu_Selection(uint8_t selected_index) {
+    for (uint8_t i = 0; i < MENU_COUNT; i++) {
+        Draw_Menu_Button(i, (i == selected_index));
+    }
+}
+
+void Clear_Graph_Area(void) {
+    // Запълва с черно САМО вътрешността на координатното поле
+    ILI9341_FillRectangle(GRAPH_PLOT_X, GRAPH_PLOT_Y,
+                          GRAPH_PLOT_WIDTH, GRAPH_PLOT_HEIGHT,
+                          ILI9341_BLACK);
+}
+
+void Draw_Dashboard_Static(uint8_t selected_menu) {
+    ILI9341_FillScreen(ILI9341_BLACK);
+
+    // ==========================================================================
+    // 1. КООРДИНАТНА СИСТЕМА И РАМКА
+    // ==========================================================================
+
+    // Рамка около графиката
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MIN, GRAPH_FRAME_W, 1, ILI9341_WHITE); // Горе
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MAX, GRAPH_FRAME_W, 1, ILI9341_WHITE); // Долу (Ос U)
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MIN, 1, GRAPH_FRAME_H, ILI9341_WHITE); // Ляво (Ос I)
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MAX, GRAPH_AXIS_Y_MIN, 1, GRAPH_FRAME_H, ILI9341_WHITE); // Дясно
+
+    // --------------------------------------------------------------------------
+    // Деления и етикети по оста Y (Ток - I)
+    // --------------------------------------------------------------------------
+    uint16_t y_mid = (GRAPH_AXIS_Y_MIN + GRAPH_AXIS_Y_MAX) / 2;
+
+    // Деления (Ticks) с дължина 3px наляво от оста
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN - 3, GRAPH_AXIS_Y_MIN, 3, 1, ILI9341_LIGHTGREY); // Максимум
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN - 3, y_mid,            3, 1, ILI9341_LIGHTGREY); // Среда
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN - 3, GRAPH_AXIS_Y_MAX, 3, 1, ILI9341_LIGHTGREY); // Нула (0.0A)
+
+    // Стойности и мерни единици
+    ILI9341_WriteString(2, 2, "I[A]", Font_7x10, ILI9341_CYAN, ILI9341_BLACK);
+    ILI9341_WriteString(4, GRAPH_AXIS_Y_MIN - 3, "3.0", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
+    ILI9341_WriteString(4, y_mid - 4,            "1.5", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
+    ILI9341_WriteString(4, GRAPH_AXIS_Y_MAX - 5, "0.0", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
+
+    // --------------------------------------------------------------------------
+    // Деления и етикети по оста X (Напрежение - U)
+    // --------------------------------------------------------------------------
+    uint16_t x_mid = (GRAPH_AXIS_X_MIN + GRAPH_AXIS_X_MAX) / 2;
+
+    // Деления (Ticks) с височина 3px надолу от оста
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MAX + 1, 1, 3, ILI9341_LIGHTGREY); // Нула (0V)
+    ILI9341_FillRectangle(x_mid,            GRAPH_AXIS_Y_MAX + 1, 1, 3, ILI9341_LIGHTGREY); // Среда
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MAX, GRAPH_AXIS_Y_MAX + 1, 1, 3, ILI9341_LIGHTGREY); // Максимум
+
+    // Стойности и мерни единици
+    ILI9341_WriteString(GRAPH_AXIS_X_MIN - 2, GRAPH_AXIS_Y_MAX + 6, "0V", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
+    ILI9341_WriteString(x_mid - 10,           GRAPH_AXIS_Y_MAX + 6, "15V", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
+    ILI9341_WriteString(GRAPH_AXIS_X_MAX - 18, GRAPH_AXIS_Y_MAX + 6, "30V", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
+    ILI9341_WriteString(x_mid - 10,           GRAPH_AXIS_Y_MAX + 19, "U [V]", Font_7x10, ILI9341_CYAN, ILI9341_BLACK);
+
+    // ==========================================================================
+    // 2. СТАТИЧНИ ЕТИКЕТИ В ДЯСНО
+    // ==========================================================================
+    ILI9341_WriteString(GRAPH_AXIS_X_MAX + 10, 10,  "Voltage:", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
+    ILI9341_WriteString(GRAPH_AXIS_X_MAX + 10, 70,  "Current:", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
+    ILI9341_WriteString(GRAPH_AXIS_X_MAX + 10, 130, "Power:",   Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
+
+    // ==========================================================================
+    // 3. ДОЛНО МЕНЮ
+    // ==========================================================================
+    Update_Menu_Selection(selected_menu);
+}
 // Функция за опресняване на стойностите
 void Update_Values(float v, float i) {
     char buffer[16];
@@ -111,6 +236,42 @@ void Update_Values(float v, float i) {
     sprintf(buffer, "%3d.%1d W ", p_whole, p_decimal);
     ILI9341_WriteString(220, 145, buffer, Font_11x18, ILI9341_GREEN, ILI9341_BLACK);
 }
+
+
+void ILI9341_DrawLine(int x0, int y0, int x1, int y1, uint16_t color) {
+    int dx = abs(x1 - x0);
+    int sx = (x0 < x1) ? 1 : -1;
+    int dy = -abs(y1 - y0);
+    int sy = (y0 < y1) ? 1 : -1;
+    int err = dx + dy; // Грешка на отклонение
+
+    while (1) {
+        // Чертаем текущия пиксел само ако попада вътре в работното поле на графиката
+        if (x0 >= GRAPH_PLOT_X && x0 <= (GRAPH_PLOT_X + GRAPH_PLOT_WIDTH - 1) &&
+            y0 >= GRAPH_PLOT_Y && y0 <= (GRAPH_PLOT_Y + GRAPH_PLOT_HEIGHT - 1)) {
+            ILI9341_DrawPixel(x0, y0, color);
+        }
+
+        // Достигната е крайната точка
+        if (x0 == x1 && y0 == y1) {
+            break;
+        }
+
+        int e2 = 2 * err;
+
+        if (e2 >= dy) {
+            err += dy;
+            x0 += sx;
+        }
+        if (e2 <= dx) {
+            err += dx;
+            y0 += sy;
+        }
+    }
+}
+
+
+
 /* USER CODE END 0 */
 
 /**
@@ -144,52 +305,85 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  int x_graph = 10;
+  //BEGIN
+  int x_graph = GRAPH_PLOT_X;
   ILI9341_Init();
   HAL_Delay(100);
   ILI9341_FillScreen(ILI9341_BLACK); // Трябва да изчисти шума и да направи екрана черен
   HAL_Delay(100);
-  ILI9341_FillRectangle(50, 50, 100, 100, ILI9341_GREEN); // Червен квадрат в центъра
+
+  Draw_Dashboard_Static(0);
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
     while (1)
     {
+    	// Статични променливи за следене на предходната точка между итерациите
+    	        static int prev_x = -1;
+    	        static int prev_y = -1;
 
-//		// Превключваме пиновете на всеки 500 ms
-//		HAL_GPIO_TogglePin(ILI9341_RES_GPIO_Port, ILI9341_RES_Pin);
-//		HAL_GPIO_TogglePin(ILI9341_CS_GPIO_Port, ILI9341_CS_Pin);
-//		HAL_GPIO_TogglePin(ILI9341_DC_GPIO_Port, ILI9341_DC_Pin);
-//		HAL_Delay(500);
+    	        // 1. Симулираме промяна на данните от ADC-то
+    	        simulated_voltage += SWEEP_STEP_V;
 
+    	        // Проверка за превъртане на сканирането
+    	        if (simulated_voltage > 30.0f) {
+    	            simulated_voltage = 0.0f;
+    	            simulated_current = 0.0f;
+    	            prev_x = -1; // Рестартираме историята, за да не свърже края с началото
+    	            prev_y = -1;
+    	            Clear_Graph_Area();
+    	        } else {
+    	            // За линейна зависимост (0..30V -> 0..3.0A):
+//    	            simulated_current = simulated_voltage * 0.1f;
 
+    	            // Ако искате нелинейна/диодна крива, достигаща точно 3.0A при 30V, използвайте:
+    	             simulated_current = (simulated_voltage * simulated_voltage) / 300.0f;
+    	        }
 
-        // 1. Симулираме промяна на данните от ADC-то
-        simulated_voltage += 0.2;
-        simulated_current = simulated_voltage * 0.5; // Примерна зависимост
-        if(simulated_voltage > 20.0) {
-            simulated_voltage = 0.0;
-            x_graph = 10; // Рестартираме графиката
-            ILI9341_FillRectangle(6, 6, 203, 188, ILI9341_BLACK); // Изчистваме само полето на графиката!
-        }
+    	        // 2. Опресняваме текста вдясно (Voltage, Current, Power)
+    	        Update_Values(simulated_voltage, simulated_current);
 
-        // 2. Опресняваме текста (забележи - екранът не мига, защото сме задали черен фон на текста)
-        Update_Values(simulated_voltage, simulated_current);
+    	        // 3. Изчисляваме координатите (чиста целочислена аритметика)
+    	        // Мащабираме: 30.0V * 10 = 300 стъпки; 3.00A * 100 = 300 стъпки
+    	        int v_scaled = (int)(simulated_voltage * 10);
+    	        int i_scaled = (int)(simulated_current * 100);
 
-        // 3. Чертаем точка от "графиката" (симулация)
-        // Мащабираме V към Y координата (обърната, защото Y=0 е горе)
-        int y_graph = 190 - (int)(simulated_voltage * 8);
-        if(y_graph < 10) y_graph = 10;
+    	        // X расте надясно спрямо напрежението
+    	        int x_graph = GRAPH_PLOT_X + (v_scaled * (GRAPH_PLOT_WIDTH - 1)) / 300;
 
-        ILI9341_DrawPixel(x_graph, y_graph, ILI9341_RED);
-        // Правим точката по-дебела за да се вижда (3x3 пиксела)
-        ILI9341_FillRectangle(x_graph-1, y_graph-1, 3, 3, ILI9341_RED);
+    	        // Y расте нагоре спрямо тока (обърната координата спрямо горния ляв ъгъл)
+    	        int y_zero  = GRAPH_PLOT_Y + GRAPH_PLOT_HEIGHT - 1;
+    	        int y_graph = y_zero - (i_scaled * (GRAPH_PLOT_HEIGHT - 1)) / 300;
 
-        x_graph += 2; // Местим се надясно по оста X
+    	        // Ограничаване строго вътре в работното поле
+    	        if (x_graph < GRAPH_PLOT_X) x_graph = GRAPH_PLOT_X;
+    	        if (x_graph > (GRAPH_AXIS_X_MAX - 1)) x_graph = GRAPH_AXIS_X_MAX - 1;
+    	        if (y_graph < GRAPH_PLOT_Y) y_graph = GRAPH_PLOT_Y;
+    	        if (y_graph > y_zero) y_graph = y_zero;
 
-        // 4. Пауза за симулацията (в реалния проект тук ще четеш ADC-то)
-        HAL_Delay(10);
+    	        // 4. Чертане на непрекъсната крива
+    	        if (prev_x != -1 && prev_y != -1) {
+    	            // Свързваме предишната точка с текущата с линия
+    	            ILI9341_DrawLine(prev_x, prev_y, x_graph, y_graph, ILI9341_GREEN);
+    	        } else {
+    	            // Първа точка след изчистване (начало на координатната система)
+    	            ILI9341_DrawPixel(x_graph, y_graph, ILI9341_GREEN);
+    	        }
+
+    	        // Запомняме текущата позиция за следващата итерация
+    	        prev_x = x_graph;
+    	        prev_y = y_graph;
+
+    	        // 5. Пауза и обработка на менюто
+    	        HAL_Delay(10);
+
+    	        if (selected_menu != selected_menu_old) {
+    	            Update_Menu_Selection(selected_menu);
+    	            selected_menu_old = selected_menu;
+    	        }
 
     /* USER CODE END WHILE */
 

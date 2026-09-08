@@ -48,7 +48,7 @@ extern SPI_HandleTypeDef ILI9341_SPI_PORT;
 
 #define ILI9341_WIDTH  320
 #define ILI9341_HEIGHT 240
-#define ILI9341_ROTATION (ILI9341_MADCTL_MY | ILI9341_MADCTL_BGR)
+#define ILI9341_ROTATION (ILI9341_MADCTL_MY | ILI9341_MADCTL_RGB)
 
 
 /****************************/
@@ -62,7 +62,10 @@ extern SPI_HandleTypeDef ILI9341_SPI_PORT;
 #define ILI9341_MAGENTA 0xF81F
 #define ILI9341_YELLOW  0xFFE0
 #define ILI9341_WHITE   0xFFFF
-#define ILI9341_LIGHTGREY 0xC618
+#define ILI9341_LIGHTGREY   0xC618  // По-светло сиво
+#define ILI9341_GREY        0x8410  // Средно сиво
+#define ILI9341_DARKGREY    0x7BEF  // Тъмно сиво (стандартно за Adafruit/TFT)
+#define ILI9341_VERYDARK    0x39E7  // Много тъмно сиво
 #define ILI9341_COLOR565(r, g, b) (((r & 0xF8) << 8) | ((g & 0xFC) << 3) | ((b & 0xF8) >> 3))
 
 // call before initializing any SPI devices
