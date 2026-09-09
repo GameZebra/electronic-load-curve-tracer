@@ -319,7 +319,7 @@ int main(void)
   ILI9341_FillScreen(ILI9341_BLACK); // Трябва да изчисти шума и да направи екрана черен
   HAL_Delay(100);
 
-  GraphMode_t current_graph_mode = GRAPH_MODE_LINES;
+  GraphMode_t current_graph_mode = GRAPH_MODE_POINTS;
   Draw_Dashboard_Static(0);
 
 
