@@ -5,9 +5,7 @@
  *      Author: gamezebra
  */
 
-
 #include "gui.h"
-#include <stdio.h> // За sprintf
 
 // Структура за бутоните от менюто
 typedef struct {
@@ -25,34 +23,80 @@ static const MenuItem_t menu_items[MENU_COUNT] = {
     {215, 215, 95, 18, "  SETTINGS " }
 };
 
-
-// Статични променливи, които пазят състоянието само в рамките на GUI модула
+// Статични променливи
 static int prev_x = -1;
 static int prev_y = -1;
 static int selected_menu_old = -1;
 
-// Ако selected_menu се променя от прекъсване на енкодер/бутон, може да е extern
 extern int selected_menu;
+
+// ==============================================================================
+// ПОМОЩНИ ВЪТРЕШНИ ФУНКЦИИ (трябва да са преди функциите, които ги извикват)
+// ==============================================================================
+
+static void Format_Value_String(uint32_t whole, uint32_t frac_2digits, const char* suffix, char* buffer) {
+    int idx = 0;
+
+    // 1. Конвертиране на цялата част
+    if (whole == 0) {
+        buffer[idx++] = '0';
+    } else {
+        char temp[10];
+        int t_idx = 0;
+        while (whole > 0) {
+            temp[t_idx++] = '0' + (whole % 10);
+            whole /= 10;
+        }
+        while (t_idx > 0) {
+            buffer[idx++] = temp[--t_idx];
+        }
+    }
+
+    // 2. Добавяме десетичната точка
+    buffer[idx++] = '.';
+
+    // 3. Добавяме дробната част (гарантирано 2 цифри)
+    buffer[idx++] = '0' + (frac_2digits / 10);
+    buffer[idx++] = '0' + (frac_2digits % 10);
+
+    // 4. Добавяме интервал и суфикса (" V", " A" и т.н.)
+    buffer[idx++] = ' ';
+    while (*suffix != '\0') {
+        buffer[idx++] = *suffix++;
+    }
+
+    // 5. НОВО: Допълваме с интервали до фиксирана дължина (напр. 8 символа),
+    // за да изтрием гарантирано старите остатъци от екрана.
+    while (idx < 8) {
+        buffer[idx++] = ' ';
+    }
+
+    // 6. Задължително терминираме стринга
+    buffer[idx] = '\0';
+}
+
+static uint32_t Calculate_Power_mW(uint32_t voltage_mV, uint32_t current_uA) {
+    uint32_t current_mA = current_uA / 1000;
+    return (voltage_mV * current_mA) / 1000;
+}
+
+// ==============================================================================
+// ПУБЛИЧНИ ФУНКЦИИ НА GUI МОДУЛА
+// ==============================================================================
 
 void Draw_Menu_Button(uint8_t index, uint8_t is_selected) {
     const MenuItem_t *btn = &menu_items[index];
-
-    // Инвертиране на цветовете при селекция
     uint16_t bg_color   = is_selected ? ILI9341_WHITE : ILI9341_BLACK;
     uint16_t text_color = is_selected ? ILI9341_BLACK : ILI9341_LIGHTGREY;
     uint16_t border_col = is_selected ? ILI9341_YELLOW : ILI9341_DARKGREY;
 
-    // Фон на бутона
     ILI9341_FillRectangle(btn->x, btn->y, btn->w, btn->h, bg_color);
-
-    // Текст (центриран по височина с офсет 4px)
     ILI9341_WriteString(btn->x + 4, btn->y + 4, btn->label, Font_7x10, text_color, bg_color);
 
-    // Рамка около бутона
-    ILI9341_FillRectangle(btn->x, btn->y, btn->w, 1, border_col);                     // горе
-    ILI9341_FillRectangle(btn->x, btn->y + btn->h - 1, btn->w, 1, border_col);         // долу
-    ILI9341_FillRectangle(btn->x, btn->y, 1, btn->h, border_col);                     // ляво
-    ILI9341_FillRectangle(btn->x + btn->w - 1, btn->y, 1, btn->h, border_col);         // дясно
+    ILI9341_FillRectangle(btn->x, btn->y, btn->w, 1, border_col);
+    ILI9341_FillRectangle(btn->x, btn->y + btn->h - 1, btn->w, 1, border_col);
+    ILI9341_FillRectangle(btn->x, btn->y, 1, btn->h, border_col);
+    ILI9341_FillRectangle(btn->x + btn->w - 1, btn->y, 1, btn->h, border_col);
 }
 
 void Update_Menu_Selection(uint8_t selected_index) {
@@ -62,7 +106,6 @@ void Update_Menu_Selection(uint8_t selected_index) {
 }
 
 void Clear_Graph_Area(void) {
-    // Запълва с черно САМО вътрешността на координатното поле
     ILI9341_FillRectangle(GRAPH_PLOT_X, GRAPH_PLOT_Y,
                           GRAPH_PLOT_WIDTH, GRAPH_PLOT_HEIGHT,
                           ILI9341_BLACK);
@@ -71,100 +114,84 @@ void Clear_Graph_Area(void) {
 void Draw_Dashboard_Static(uint8_t selected_menu) {
     ILI9341_FillScreen(ILI9341_BLACK);
 
-    // ==========================================================================
     // 1. КООРДИНАТНА СИСТЕМА И РАМКА
-    // ==========================================================================
-    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MIN, GRAPH_FRAME_W, 1, ILI9341_WHITE); // Горе
-    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MAX, GRAPH_FRAME_W, 1, ILI9341_WHITE); // Долу (Ос U)
-    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MIN, 1, GRAPH_FRAME_H, ILI9341_WHITE); // Ляво (Ос I)
-    ILI9341_FillRectangle(GRAPH_AXIS_X_MAX, GRAPH_AXIS_Y_MIN, 1, GRAPH_FRAME_H, ILI9341_WHITE); // Дясно
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MIN, GRAPH_FRAME_W, 1, ILI9341_WHITE);
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MAX, GRAPH_FRAME_W, 1, ILI9341_WHITE);
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MIN, 1, GRAPH_FRAME_H, ILI9341_WHITE);
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MAX, GRAPH_AXIS_Y_MIN, 1, GRAPH_FRAME_H, ILI9341_WHITE);
 
-    // --------------------------------------------------------------------------
-    // Деления и етикети по оста Y (Ток - I)
-    // --------------------------------------------------------------------------
+    // Деления по оста Y
     uint16_t y_mid = (GRAPH_AXIS_Y_MIN + GRAPH_AXIS_Y_MAX) / 2;
-    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN - 3, GRAPH_AXIS_Y_MIN, 3, 1, ILI9341_LIGHTGREY); // Максимум
-    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN - 3, y_mid,            3, 1, ILI9341_LIGHTGREY); // Среда
-    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN - 3, GRAPH_AXIS_Y_MAX, 3, 1, ILI9341_LIGHTGREY); // Нула (0.0A)
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN - 3, GRAPH_AXIS_Y_MIN, 3, 1, ILI9341_LIGHTGREY);
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN - 3, y_mid,            3, 1, ILI9341_LIGHTGREY);
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN - 3, GRAPH_AXIS_Y_MAX, 3, 1, ILI9341_LIGHTGREY);
 
     ILI9341_WriteString(2, 2, "I[A]", Font_7x10, ILI9341_CYAN, ILI9341_BLACK);
     ILI9341_WriteString(4, GRAPH_AXIS_Y_MIN - 3, "3.0", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
     ILI9341_WriteString(4, y_mid - 4,            "1.5", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
     ILI9341_WriteString(4, GRAPH_AXIS_Y_MAX - 5, "0.0", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
 
-    // --------------------------------------------------------------------------
-    // Деления и етикети по оста X (Напрежение - U)
-    // --------------------------------------------------------------------------
+    // Деления по оста X
     uint16_t x_mid = (GRAPH_AXIS_X_MIN + GRAPH_AXIS_X_MAX) / 2;
-    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MAX + 1, 1, 3, ILI9341_LIGHTGREY); // Нула (0V)
-    ILI9341_FillRectangle(x_mid,            GRAPH_AXIS_Y_MAX + 1, 1, 3, ILI9341_LIGHTGREY); // Среда
-    ILI9341_FillRectangle(GRAPH_AXIS_X_MAX, GRAPH_AXIS_Y_MAX + 1, 1, 3, ILI9341_LIGHTGREY); // Максимум
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MIN, GRAPH_AXIS_Y_MAX + 1, 1, 3, ILI9341_LIGHTGREY);
+    ILI9341_FillRectangle(x_mid,            GRAPH_AXIS_Y_MAX + 1, 1, 3, ILI9341_LIGHTGREY);
+    ILI9341_FillRectangle(GRAPH_AXIS_X_MAX, GRAPH_AXIS_Y_MAX + 1, 1, 3, ILI9341_LIGHTGREY);
 
     ILI9341_WriteString(GRAPH_AXIS_X_MIN - 2, GRAPH_AXIS_Y_MAX + 6, "0V", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
     ILI9341_WriteString(x_mid - 10,           GRAPH_AXIS_Y_MAX + 6, "15V", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
     ILI9341_WriteString(GRAPH_AXIS_X_MAX - 18, GRAPH_AXIS_Y_MAX + 6, "30V", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
     ILI9341_WriteString(x_mid - 10,           GRAPH_AXIS_Y_MAX + 19, "U [V]", Font_7x10, ILI9341_CYAN, ILI9341_BLACK);
 
-    // ==========================================================================
     // 2. СТАТИЧНИ ЕТИКЕТИ В ДЯСНО
-    // ==========================================================================
     ILI9341_WriteString(GRAPH_AXIS_X_MAX + 10, 10,  "Voltage:", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
     ILI9341_WriteString(GRAPH_AXIS_X_MAX + 10, 70,  "Current:", Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
     ILI9341_WriteString(GRAPH_AXIS_X_MAX + 10, 130, "Power:",   Font_7x10, ILI9341_LIGHTGREY, ILI9341_BLACK);
 
-    // ==========================================================================
     // 3. ДОЛНО МЕНЮ
-    // ==========================================================================
     Update_Menu_Selection(selected_menu);
 }
-
-void Update_Values(float v, float i) {
-    char buffer[16];
-
-    // Напрежение (жълто)
-    int v_whole = (int)v;
-    int v_decimal = (int)(v * 10) % 10;
-    sprintf(buffer, "%2d.%1d V ", v_whole, v_decimal);
-    ILI9341_WriteString(220, 25, buffer, Font_11x18, ILI9341_YELLOW, ILI9341_BLACK);
-
-    // Ток (светло синьо)
-    int i_whole = (int)i;
-    int i_decimal = (int)(i * 10) % 10;
-    sprintf(buffer, "%2d.%1d A ", i_whole, i_decimal);
-    ILI9341_WriteString(220, 85, buffer, Font_11x18, ILI9341_CYAN, ILI9341_BLACK);
-
-    // Мощност (зелено)
-    float p = v * i;
-    int p_whole = (int)p;
-    int p_decimal = (int)(p * 10) % 10;
-    sprintf(buffer, "%3d.%1d W ", p_whole, p_decimal);
-    ILI9341_WriteString(220, 145, buffer, Font_11x18, ILI9341_GREEN, ILI9341_BLACK);
-}
-
 
 void GUI_InitSystem(void) {
     ILI9341_Init();
     HAL_Delay(100);
     ILI9341_FillScreen(ILI9341_BLACK);
     HAL_Delay(100);
-    Draw_Dashboard_Static(0); // Предполагам тази функция вече я имаш в gui.c
+    Draw_Dashboard_Static(0);
 }
 
-void GUI_UpdateDashboard(float voltage, float current) {
-    Update_Values(voltage, current);
+void GUI_UpdateDashboard(uint32_t voltage_mV, uint32_t current_uA) {
+    char v_str[16];
+    char i_str[16];
+    char p_str[16];
+
+    uint32_t v_whole = voltage_mV / 1000;
+    uint32_t v_frac  = (voltage_mV % 1000) / 10;
+    Format_Value_String(v_whole, v_frac, "V", v_str);
+
+    uint32_t i_whole = current_uA / 1000000;
+    uint32_t i_frac  = (current_uA % 1000000) / 10000;
+    Format_Value_String(i_whole, i_frac, "A", i_str);
+
+    uint32_t power_mW = Calculate_Power_mW(voltage_mV, current_uA);
+    uint32_t w_whole = power_mW / 1000;
+    uint32_t w_frac  = (power_mW % 1000) / 10;
+    Format_Value_String(w_whole, w_frac, "W", p_str);
+
+     ILI9341_WriteString(220, 25, v_str, Font_11x18, ILI9341_YELLOW, ILI9341_BLACK);
+     ILI9341_WriteString(220, 85, i_str, Font_11x18, ILI9341_CYAN, ILI9341_BLACK);
+     ILI9341_WriteString(220, 145, p_str, Font_11x18, ILI9341_GREEN, ILI9341_BLACK);
 }
 
-void GUI_PlotPoint(float voltage, float current, GraphMode_t mode, bool reset_graph) {
+void GUI_PlotPoint(uint32_t voltage_mV, uint32_t current_uA, GraphMode_t mode, bool reset_graph) {
     if (reset_graph) {
         prev_x = -1;
         prev_y = -1;
         Clear_Graph_Area();
-        return; // Излизаме, няма какво да чертаем при ресет
+        return;
     }
 
-    // 3. Изчисляваме координатите
-    int v_scaled = (int)(voltage * 10);
-    int i_scaled = (int)(current * 100);
+    int v_scaled = voltage_mV / 100;
+    int i_scaled = current_uA / 10000;
 
     int x_graph = GRAPH_PLOT_X + (v_scaled * (GRAPH_PLOT_WIDTH - 1)) / 300;
     int y_zero  = GRAPH_PLOT_Y + GRAPH_PLOT_HEIGHT - 1;
@@ -175,7 +202,6 @@ void GUI_PlotPoint(float voltage, float current, GraphMode_t mode, bool reset_gr
     if (y_graph < GRAPH_PLOT_Y) y_graph = GRAPH_PLOT_Y;
     if (y_graph > y_zero) y_graph = y_zero;
 
-    // 4. Чертане според избрания режим
     if (mode == GRAPH_MODE_LINES) {
         if (prev_x != -1 && prev_y != -1) {
             ILI9341_DrawLine(prev_x, prev_y, x_graph, y_graph, ILI9341_GREEN);
@@ -206,8 +232,3 @@ void GUI_ProcessMenu(void) {
         selected_menu_old = selected_menu;
     }
 }
-
-
-
-
-

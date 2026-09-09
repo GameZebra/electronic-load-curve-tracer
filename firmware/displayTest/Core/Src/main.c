@@ -86,10 +86,13 @@ int main(void)
 {
     /* USER CODE BEGIN 1 */
     SystemState_t current_state = STATE_INIT;
-    float current_v = 0.0f;
-    float current_i = 0.0f;
+
+    // ПРОМЯНАТА: Вече използваме цели числа (миливолти и микроампери)
+    uint32_t current_v_mV = 0;
+    uint32_t current_i_uA = 0;
+
     bool reset_graph = false;
-    GraphMode_t current_graph_mode = GRAPH_MODE_POINTS;
+    GraphMode_t current_graph_mode = GRAPH_MODE_LINES; // Или GRAPH_MODE_LINES
     /* USER CODE END 1 */
 
     HAL_Init();
@@ -111,15 +114,15 @@ int main(void)
                 break;
 
             case STATE_MEASURE_DATA:
-                // В бъдеще тук просто ще замениш Simulator с функция, която чете от ADC
-                Simulator_GetNextMeasurement(&current_v, &current_i, &reset_graph);
+                // Подаваме адресите на новите целочислени променливи
+                Simulator_GetNextMeasurement(&current_v_mV, &current_i_uA, &reset_graph);
                 current_state = STATE_UPDATE_GUI;
                 break;
 
             case STATE_UPDATE_GUI:
                 // Актуализираме стойностите и чертаем графиката
-                GUI_UpdateDashboard(current_v, current_i);
-                GUI_PlotPoint(current_v, current_i, current_graph_mode, reset_graph);
+                GUI_UpdateDashboard(current_v_mV, current_i_uA);
+                GUI_PlotPoint(current_v_mV, current_i_uA, current_graph_mode, reset_graph);
                 current_state = STATE_PROCESS_MENU;
                 break;
 

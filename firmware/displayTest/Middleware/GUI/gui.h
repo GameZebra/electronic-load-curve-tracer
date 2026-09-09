@@ -48,11 +48,11 @@ void Draw_Menu_Button(uint8_t index, uint8_t is_selected);
 void Update_Menu_Selection(uint8_t selected_index);
 void Clear_Graph_Area(void);
 void Draw_Dashboard_Static(uint8_t selected_menu);
-void Update_Values(float v, float i);
 
 void GUI_InitSystem(void);
-void GUI_UpdateDashboard(float voltage, float current);
-void GUI_PlotPoint(float voltage, float current, GraphMode_t mode, bool reset_graph);
+// Всичко вече е само с цели числа!
+void GUI_UpdateDashboard(uint32_t voltage_mV, uint32_t current_uA);
+void GUI_PlotPoint(uint32_t voltage_mV, uint32_t current_uA, GraphMode_t mode, bool reset_graph);
 void GUI_ProcessMenu(void);
 
 #endif // GUI_H

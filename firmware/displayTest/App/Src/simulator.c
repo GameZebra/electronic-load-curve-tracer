@@ -7,36 +7,48 @@
 
 #include "simulator.h"
 
-// Дефинирай стъпката си тук, ако не е глобално дефинирана другаде
-#define SWEEP_STEP_V 0.8f
+// Константи в цели числа (mV и µA) спрямо оригиналните ти
+#define SWEEP_STEP_MV    800     // 0.8V
+#define SOLAR_VOC_MV     20000   // 20.0V
+#define SOLAR_VMP_MV     17500   // 17.5V
+#define SOLAR_ISC_UA     1150000 // 1.15A
 
-static float simulated_voltage = 0.0f;
-static float simulated_current = 0.0f;
+static uint32_t simulated_voltage_mV = 0;
+static uint32_t simulated_current_uA = 0;
 
 void Simulator_Init(void) {
-    simulated_voltage = 0.0f;
-    simulated_current = 0.0f;
+    simulated_voltage_mV = 0;
+    simulated_current_uA = 0;
 }
 
-void Simulator_GetNextMeasurement(float *voltage, float *current, bool *cycle_reset) {
+void Simulator_GetNextMeasurement(uint32_t *voltage_mV, uint32_t *current_uA, bool *cycle_reset) {
     *cycle_reset = false;
-    simulated_voltage += SWEEP_STEP_V;
+    simulated_voltage_mV += SWEEP_STEP_MV;
 
-    if (simulated_voltage > 20.0f) {
-        simulated_voltage = 0.0f;
-        simulated_current = 0.0f;
-        *cycle_reset = true; // Индикираме, че започваме нов цикъл
+    if (simulated_voltage_mV > SOLAR_VOC_MV) {
+        simulated_voltage_mV = 0;
+        simulated_current_uA = 0;
+        *cycle_reset = true;
     } else {
-        float isc = 1.15f;
-        if (simulated_voltage <= 17.5f) {
-            float factor = simulated_voltage / 17.5f;
-            simulated_current = isc * (1.0f - 0.05f * (factor * factor));
+        if (simulated_voltage_mV <= SOLAR_VMP_MV) {
+            // factor е скалиран по 1000
+            uint32_t factor = (simulated_voltage_mV * 1000) / SOLAR_VMP_MV;
+            uint32_t factor_sq = (factor * factor) / 1000;
+
+            // 0.05 * 1150000 = 57500
+            simulated_current_uA = SOLAR_ISC_UA - (57500 * factor_sq) / 1000;
         } else {
-            float remaining_ratio = (20.0f - simulated_voltage) / (20.0f - 17.5f);
-            simulated_current = isc * 0.95f * (remaining_ratio * remaining_ratio * remaining_ratio);
+            uint32_t diff_mV = SOLAR_VOC_MV - simulated_voltage_mV;
+            uint32_t ratio = (diff_mV * 1000) / (SOLAR_VOC_MV - SOLAR_VMP_MV);
+
+            uint32_t ratio_sq = (ratio * ratio) / 1000;
+            uint32_t ratio_cu = (ratio_sq * ratio) / 1000;
+
+            // 0.95 * 1150000 = 1092500
+            simulated_current_uA = (1092500 * ratio_cu) / 1000;
         }
     }
 
-    *voltage = simulated_voltage;
-    *current = simulated_current;
+    *voltage_mV = simulated_voltage_mV;
+    *current_uA = simulated_current_uA;
 }

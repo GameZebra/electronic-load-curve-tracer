@@ -8,13 +8,12 @@
 #ifndef SIMULATOR_H
 #define SIMULATOR_H
 
+#include <stdint.h>
 #include <stdbool.h>
 
-// Инициализира началните стойности на симулатора
 void Simulator_Init(void);
-
-// Генерира следващата точка от V-I характеристиката
-// Връща true в cycle_reset, когато кривата стигне края и трябва да започне отначало
-void Simulator_GetNextMeasurement(float *voltage, float *current, bool *cycle_reset);
+// voltage_mV е в миливолти (напр. 17500 за 17.5V)
+// current_uA е в микроампери (напр. 1150000 за 1.15A)
+void Simulator_GetNextMeasurement(uint32_t *voltage_mV, uint32_t *current_uA, bool *cycle_reset);
 
 #endif // SIMULATOR_H
