@@ -1,4 +1,4 @@
-/* vim: set ai et ts=4 sw=4: */
+
 #ifndef __ILI9341_H__
 #define __ILI9341_H__
 
@@ -17,6 +17,7 @@
 /*** Redefine if necessary ***/
 #define ILI9341_SPI_PORT hspi1
 extern SPI_HandleTypeDef ILI9341_SPI_PORT;
+
 
 //#define ILI9341_RES_Pin       GPIO_PIN_7
 //#define ILI9341_RES_GPIO_Port GPIOC
@@ -44,12 +45,12 @@ extern SPI_HandleTypeDef ILI9341_SPI_PORT;
 #define ILI9341_ROTATION (ILI9341_MADCTL_MV | ILI9341_MADCTL_BGR)
 */
 
-// upside down
 
+
+// upside down
 #define ILI9341_WIDTH  320
 #define ILI9341_HEIGHT 240
 #define ILI9341_ROTATION (ILI9341_MADCTL_MY | ILI9341_MADCTL_RGB)
-
 
 /****************************/
 
@@ -78,5 +79,6 @@ void ILI9341_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint1
 void ILI9341_FillScreen(uint16_t color);
 void ILI9341_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* data);
 void ILI9341_InvertColors(bool invert);
+void ILI9341_DrawLine(int x0, int y0, int x1, int y1, uint16_t color);
 
 #endif // __ILI9341_H__
