@@ -110,8 +110,16 @@ int main(void)
             switch (current_state)
             {
                 case STATE_INIT:
-                    GUI_InitSystem();
-                    Simulator_Init();
+                	GUI_InitSystem();
+					Simulator_Init();
+
+					// ТЕСТ: Смяна на симулирания панел на 10W (Voc=15V, Vmp=12V, Isc=0.8A)
+					SolarPanelConfig_t test_panel = {
+						.voc_mV = 15000,
+						.vmp_mV = 12000,
+						.isc_uA = 800000
+					};
+					Simulator_SetConfig(test_panel);
 
                     // 1. Генерираме масива еднократно при стартиране
                     bool cycle_reset = false;
