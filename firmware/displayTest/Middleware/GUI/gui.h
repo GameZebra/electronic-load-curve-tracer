@@ -54,5 +54,6 @@ void GUI_InitSystem(void);
 void GUI_UpdateDashboard(uint32_t voltage_mV, uint32_t current_uA);
 void GUI_PlotPoint(uint32_t voltage_mV, uint32_t current_uA, GraphMode_t mode, bool reset_graph);
 void GUI_ProcessMenu(void);
+void GUI_PlotCurveArray(uint32_t *voltage_mV_arr, uint32_t *current_uA_arr, uint16_t points_count, GraphMode_t mode);
 
 #endif // GUI_H

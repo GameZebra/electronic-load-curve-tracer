@@ -64,6 +64,13 @@ typedef enum {
     STATE_DELAY
 } SystemState_t;
 
+
+#define MAX_TEST_POINTS 200
+static uint32_t test_v_arr[MAX_TEST_POINTS];
+static uint32_t test_i_arr[MAX_TEST_POINTS];
+static uint16_t test_points_count = 0;
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -87,11 +94,6 @@ int main(void)
     /* USER CODE BEGIN 1 */
     SystemState_t current_state = STATE_INIT;
 
-    // ПРОМЯНАТА: Вече използваме цели числа (миливолти и микроампери)
-    uint32_t current_v_mV = 0;
-    uint32_t current_i_uA = 0;
-
-    bool reset_graph = false;
     GraphMode_t current_graph_mode = GRAPH_MODE_LINES; // Или GRAPH_MODE_LINES
     /* USER CODE END 1 */
 
@@ -104,43 +106,63 @@ int main(void)
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
     while (1)
-    {
-        switch (current_state)
         {
-            case STATE_INIT:
-                GUI_InitSystem();
-                Simulator_Init();
-                current_state = STATE_MEASURE_DATA;
-                break;
+            switch (current_state)
+            {
+                case STATE_INIT:
+                    GUI_InitSystem();
+                    Simulator_Init();
 
-            case STATE_MEASURE_DATA:
-                // Подаваме адресите на новите целочислени променливи
-                Simulator_GetNextMeasurement(&current_v_mV, &current_i_uA, &reset_graph);
-                current_state = STATE_UPDATE_GUI;
-                break;
+                    // 1. Генерираме масива еднократно при стартиране
+                    bool cycle_reset = false;
+                    test_points_count = 0;
 
-            case STATE_UPDATE_GUI:
-                // Актуализираме стойностите и чертаем графиката
-                GUI_UpdateDashboard(current_v_mV, current_i_uA);
-                GUI_PlotPoint(current_v_mV, current_i_uA, current_graph_mode, reset_graph);
-                current_state = STATE_PROCESS_MENU;
-                break;
+                    while (!cycle_reset && test_points_count < MAX_TEST_POINTS) {
+                        Simulator_GetNextMeasurement(&test_v_arr[test_points_count],
+                                                     &test_i_arr[test_points_count],
+                                                     &cycle_reset);
+                        if (!cycle_reset) {
+                            test_points_count++;
+                        }
+                    }
 
-            case STATE_PROCESS_MENU:
-                // Обработка на навигацията
-                GUI_ProcessMenu();
-                current_state = STATE_DELAY;
-                break;
+                    current_state = STATE_UPDATE_GUI; // Директно отиваме да чертаем
+                    break;
 
-            case STATE_DELAY:
-                HAL_Delay(10); // Пауза, за да не претоварваме дисплея
-                current_state = STATE_MEASURE_DATA; // Цикълът се затваря
-                break;
+                case STATE_MEASURE_DATA:
+                    // Тъй като вече имаме готовия масив, за теста тук не правим нищо.
+                    // В реалния код тук ще се чете ADC-то.
+                    current_state = STATE_UPDATE_GUI;
+                    break;
 
-            default:
-                current_state = STATE_INIT;
-                break;
-        }
+                case STATE_UPDATE_GUI:
+                    // 2. Показваме стойностите на точката с максимална мощност (Vmp = 17.5V)
+                    // За теста, това е някъде в последната третина на масива
+					if (test_points_count > 0) {
+						uint16_t vmp_index = (test_points_count * 8) / 10;
+						GUI_UpdateDashboard(test_v_arr[vmp_index], test_i_arr[vmp_index]);
+					}
+
+					// ПОДАВАМЕ РЕЖИМА current_graph_mode КАТО ПОСЛЕДЕН АРГУМЕНТ
+					GUI_PlotCurveArray(test_v_arr, test_i_arr, test_points_count, current_graph_mode);
+
+					current_state = STATE_PROCESS_MENU;
+					break;
+
+                case STATE_PROCESS_MENU:
+                    GUI_ProcessMenu();
+                    current_state = STATE_DELAY;
+                    break;
+
+                case STATE_DELAY:
+                    HAL_Delay(100); // Слагаме 100ms пауза (10 кадъра в секунда)
+                    current_state = STATE_MEASURE_DATA;
+                    break;
+
+                default:
+                    current_state = STATE_INIT;
+                    break;
+            }
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */

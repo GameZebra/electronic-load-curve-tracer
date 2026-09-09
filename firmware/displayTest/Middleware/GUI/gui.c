@@ -28,6 +28,15 @@ static int prev_x = -1;
 static int prev_y = -1;
 static int selected_menu_old = -1;
 
+
+// Максимален брой точки за графиката (спрямо ширината на полето)
+#define MAX_GRAPH_POINTS GRAPH_PLOT_WIDTH
+
+static int16_t prev_curve_x[MAX_GRAPH_POINTS] = {0};
+static int16_t prev_curve_y[MAX_GRAPH_POINTS] = {0};
+static uint16_t prev_points_count = 0;
+
+
 extern int selected_menu;
 
 // ==============================================================================
@@ -231,4 +240,89 @@ void GUI_ProcessMenu(void) {
         Update_Menu_Selection(selected_menu);
         selected_menu_old = selected_menu;
     }
+}
+
+
+// Функция, която приема готови масиви с напрежение (mV) и ток (uA)
+void GUI_PlotCurveArray(uint32_t *voltage_mV_arr, uint32_t *current_uA_arr, uint16_t points_count, GraphMode_t mode) {
+    if (points_count > MAX_GRAPH_POINTS) points_count = MAX_GRAPH_POINTS;
+
+    int16_t current_curve_x[MAX_GRAPH_POINTS];
+    int16_t current_curve_y[MAX_GRAPH_POINTS];
+
+    // ИЗНАСЯМЕ y_zero ТУК, за да е глобална за цялата функция
+    int y_zero = GRAPH_PLOT_Y + GRAPH_PLOT_HEIGHT - 1;
+
+    // ЕТАП 1: Изчисляване и Clipping (ограничаване)
+    for (uint16_t i = 0; i < points_count; i++) {
+        int v_scaled = voltage_mV_arr[i] / 100;
+        int i_scaled = current_uA_arr[i] / 10000;
+
+        int x = GRAPH_PLOT_X + (v_scaled * (GRAPH_PLOT_WIDTH - 1)) / 300;
+        int y = y_zero - (i_scaled * (GRAPH_PLOT_HEIGHT - 1)) / 300;
+
+        if (x < GRAPH_PLOT_X) x = GRAPH_PLOT_X;
+        if (x > (GRAPH_AXIS_X_MAX - 1)) x = GRAPH_AXIS_X_MAX - 1;
+        if (y < GRAPH_PLOT_Y) y = GRAPH_PLOT_Y;
+        if (y > y_zero) y = y_zero;
+
+        current_curve_x[i] = x;
+        current_curve_y[i] = y;
+    }
+
+    // ЕТАП 2: Диф-изтриване на СТАРАТА крива (с цвета на фона)
+    if (prev_points_count > 1) {
+        for (uint16_t i = 0; i < prev_points_count; i++) {
+            if (mode == GRAPH_MODE_LINES) {
+                if (i < prev_points_count - 1) {
+                     ILI9341_DrawLine(prev_curve_x[i], prev_curve_y[i],
+                                      prev_curve_x[i+1], prev_curve_y[i+1],
+                                      ILI9341_BLACK);
+                }
+            } else { // GRAPH_MODE_POINTS
+                // Изтриваме пиксела (или квадратчето)
+                int x_start = (prev_curve_x[i] - POINT_RADIUS < GRAPH_PLOT_X) ? GRAPH_PLOT_X : (prev_curve_x[i] - POINT_RADIUS);
+                int y_start = (prev_curve_y[i] - POINT_RADIUS < GRAPH_PLOT_Y) ? GRAPH_PLOT_Y : (prev_curve_y[i] - POINT_RADIUS);
+                int x_end   = (prev_curve_x[i] + POINT_RADIUS > GRAPH_AXIS_X_MAX - 1) ? (GRAPH_AXIS_X_MAX - 1) : (prev_curve_x[i] + POINT_RADIUS);
+                int y_end   = (prev_curve_y[i] + POINT_RADIUS > y_zero) ? y_zero : (prev_curve_y[i] + POINT_RADIUS);
+
+                int w = x_end - x_start + 1;
+                int h = y_end - y_start + 1;
+                if (w > 0 && h > 0) {
+                     ILI9341_FillRectangle(x_start, y_start, w, h, ILI9341_BLACK);
+                }
+            }
+        }
+    }
+
+    // ЕТАП 3: Изчертаване на НОВАТА крива
+    if (points_count > 1) {
+        for (uint16_t i = 0; i < points_count; i++) {
+            if (mode == GRAPH_MODE_LINES) {
+                if (i < points_count - 1) {
+                     ILI9341_DrawLine(current_curve_x[i], current_curve_y[i],
+                                      current_curve_x[i+1], current_curve_y[i+1],
+                                      ILI9341_GREEN);
+                }
+            } else { // GRAPH_MODE_POINTS
+                int x_start = (current_curve_x[i] - POINT_RADIUS < GRAPH_PLOT_X) ? GRAPH_PLOT_X : (current_curve_x[i] - POINT_RADIUS);
+                int y_start = (current_curve_y[i] - POINT_RADIUS < GRAPH_PLOT_Y) ? GRAPH_PLOT_Y : (current_curve_y[i] - POINT_RADIUS);
+                int x_end   = (current_curve_x[i] + POINT_RADIUS > GRAPH_AXIS_X_MAX - 1) ? (GRAPH_AXIS_X_MAX - 1) : (current_curve_x[i] + POINT_RADIUS);
+                int y_end   = (current_curve_y[i] + POINT_RADIUS > y_zero) ? y_zero : (current_curve_y[i] + POINT_RADIUS);
+
+                int w = x_end - x_start + 1;
+                int h = y_end - y_start + 1;
+                if (w > 0 && h > 0) {
+                     ILI9341_FillRectangle(x_start, y_start, w, h, ILI9341_GREEN);
+                }
+            }
+        }
+    }
+
+    // ЕТАП 4: Копиране в prev масива
+    for (uint16_t i = 0; i < points_count; i++) {
+        prev_curve_x[i] = current_curve_x[i];
+        prev_curve_y[i] = current_curve_y[i];
+    }
+    prev_points_count = points_count;
 }
