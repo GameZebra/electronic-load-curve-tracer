@@ -30,7 +30,7 @@ static int selected_menu_old = -1;
 
 
 // Максимален брой точки за графиката (спрямо ширината на полето)
-#define MAX_GRAPH_POINTS GRAPH_PLOT_WIDTH
+#define MAX_GRAPH_POINTS 350
 
 static int16_t prev_curve_x[MAX_GRAPH_POINTS] = {0};
 static int16_t prev_curve_y[MAX_GRAPH_POINTS] = {0};

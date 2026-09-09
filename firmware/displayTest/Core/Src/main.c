@@ -65,7 +65,7 @@ typedef enum {
 } SystemState_t;
 
 
-#define MAX_TEST_POINTS 200
+#define MAX_TEST_POINTS 350
 static uint32_t test_v_arr[MAX_TEST_POINTS];
 static uint32_t test_i_arr[MAX_TEST_POINTS];
 static uint16_t test_points_count = 0;
@@ -115,9 +115,9 @@ int main(void)
 
 					// ТЕСТ: Смяна на симулирания панел на 10W (Voc=15V, Vmp=12V, Isc=0.8A)
 					SolarPanelConfig_t test_panel = {
-						.voc_mV = 15000,
-						.vmp_mV = 12000,
-						.isc_uA = 800000
+						.voc_mV = 22000,
+						.vmp_mV = 19220,
+						.isc_uA = 2200000
 					};
 					Simulator_SetConfig(test_panel);
 

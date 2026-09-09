@@ -52,21 +52,25 @@ void Simulator_GetNextMeasurement(uint32_t *voltage_mV, uint32_t *current_uA, bo
             // Формула: I = Isc - (Isc * 0.05 * factor^2)
             uint32_t temp_i = (current_isc_uA / 100) * 5; // 5% от Isc
             simulated_current_uA = current_isc_uA - (temp_i * factor_sq) / 1000;
-        } else {
+        } else { // Стръмна част: Напрежението е между Vmp и Voc
             uint32_t diff_mV = current_voc_mV - simulated_voltage_mV;
             uint32_t diff_vmp = current_voc_mV - current_vmp_mV;
             uint32_t ratio = 0;
 
             if(diff_vmp > 0) {
+               // Отношение на оставащото напрежение към общата разлика след Vmp
+               // Скалирано по 1000 (1.0 = 1000)
                ratio = (diff_mV * 1000) / diff_vmp;
             }
 
+            // Използваме квадратно (ratio^2), а не кубично (ratio^3) за по-плавен спад
             uint32_t ratio_sq = (ratio * ratio) / 1000;
-            uint32_t ratio_cu = (ratio_sq * ratio) / 1000;
 
-            // Формула: I = (Isc * 0.95) * ratio^3
-            uint32_t temp_i = (current_isc_uA / 100) * 95; // 95% от Isc
-            simulated_current_uA = (temp_i * ratio_cu) / 1000;
+            // Токът в точката Vmp е около 95% от Isc.
+            // Оттам спада параболично към 0.
+            uint32_t current_at_vmp = (current_isc_uA / 100) * 95;
+
+            simulated_current_uA = (current_at_vmp * ratio_sq) / 1000;
         }
     }
 
