@@ -63,6 +63,12 @@ void Error_Handler(void);
 #define ILI9341_DC_GPIO_Port GPIOA
 #define ILI9341_CS_Pin GPIO_PIN_5
 #define ILI9341_CS_GPIO_Port GPIOA
+#define ENC_BTN_Pin GPIO_PIN_15
+#define ENC_BTN_GPIO_Port GPIOB
+#define ENC_A_Pin GPIO_PIN_8
+#define ENC_A_GPIO_Port GPIOA
+#define ENC_B_Pin GPIO_PIN_9
+#define ENC_B_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 

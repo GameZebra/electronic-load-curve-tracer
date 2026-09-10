@@ -91,20 +91,46 @@ static void MX_TIM1_Init(void);
   */
 int main(void)
 {
-    /* USER CODE BEGIN 1 */
+
+  /* USER CODE BEGIN 1 */
     SystemState_t current_state = STATE_INIT;
 
     GraphMode_t current_graph_mode = GRAPH_MODE_LINES; // Или GRAPH_MODE_LINES
-    /* USER CODE END 1 */
+    static uint16_t encoder_prev_count = 0;
+    static uint8_t btn_prev_state = GPIO_PIN_SET; // Започва High заради Pull-up
+    static int8_t encoder_substeps = 0; // Акумулатор за остатъчните импулси
 
-    HAL_Init();
-    SystemClock_Config();
-    MX_GPIO_Init();
-    MX_SPI1_Init();
-    MX_TIM1_Init();
+  /* USER CODE END 1 */
 
-    /* Infinite loop */
-    /* USER CODE BEGIN WHILE */
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_SPI1_Init();
+  MX_TIM1_Init();
+  /* USER CODE BEGIN 2 */
+  // Стартираме хардуерния енкодер на двата канала
+      HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL);
+      // Вземаме първоначалната стойност
+      encoder_prev_count = __HAL_TIM_GET_COUNTER(&htim1);
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
     while (1)
         {
             switch (current_state)
@@ -117,7 +143,7 @@ int main(void)
 					SolarPanelConfig_t test_panel = {
 						.voc_mV = 22000,
 						.vmp_mV = 19220,
-						.isc_uA = 2200000
+						.isc_uA = 1500000
 					};
 					Simulator_SetConfig(test_panel);
 
@@ -156,11 +182,52 @@ int main(void)
 
 					current_state = STATE_PROCESS_MENU;
 					break;
-
                 case STATE_PROCESS_MENU:
-                    GUI_ProcessMenu();
-                    current_state = STATE_DELAY;
-                    break;
+				{
+					// ==========================================
+					// 1. ОТЧИТАНЕ НА ВЪРТЕНЕТО (С АКУМУЛАТОР)
+					// ==========================================
+					uint16_t current_count = __HAL_TIM_GET_COUNTER(&htim1);
+
+					// Вземаме мигновената разлика от предното извикване
+					int16_t step_delta = (int16_t)current_count - (int16_t)encoder_prev_count;
+					encoder_prev_count = current_count; // Веднага синхронизираме брояча!
+
+					// Добавяме новите стъпки към акумулатора
+					encoder_substeps += step_delta;
+
+					// Проверка за завъртане НАДЯСНО (напред)
+					while (encoder_substeps >= 4) {
+						selected_menu++;
+						if (selected_menu >= MENU_COUNT) {
+							selected_menu = 0;
+						}
+						encoder_substeps -= 4;
+					}
+
+					// Проверка за завъртане НАЛЯВО (назад)
+					while (encoder_substeps <= -4) {
+						selected_menu--;
+						if (selected_menu < 0) {
+							selected_menu = MENU_COUNT - 1;
+						}
+						encoder_substeps += 4;
+					}
+
+					// ==========================================
+					// 2. ОТЧИТАНЕ НА БУТОНА (КЛИКВАНЕ)
+					// ==========================================
+					uint8_t current_btn_state = HAL_GPIO_ReadPin(ENC_BTN_GPIO_Port, ENC_BTN_Pin);
+					if (current_btn_state == GPIO_PIN_RESET && btn_prev_state == GPIO_PIN_SET) {
+						// Обработка на натискането
+					}
+					btn_prev_state = current_btn_state;
+
+					// Преначертаване на менюто
+					GUI_ProcessMenu();
+					current_state = STATE_DELAY;
+					break;
+				}
 
                 case STATE_DELAY:
                     HAL_Delay(100); // Слагаме 100ms пауза (10 кадъра в секунда)
@@ -171,12 +238,13 @@ int main(void)
                     current_state = STATE_INIT;
                     break;
             }
-        /* USER CODE END WHILE */
+    /* USER CODE END WHILE */
 
-        /* USER CODE BEGIN 3 */
+    /* USER CODE BEGIN 3 */
     }
-    /* USER CODE END 3 */
+  /* USER CODE END 3 */
 }
+
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -264,7 +332,7 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 0 */
 
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_Encoder_InitTypeDef sConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
 
   /* USER CODE BEGIN TIM1_Init 1 */
@@ -277,12 +345,16 @@ static void MX_TIM1_Init(void)
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
+  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC1Filter = 0;
+  sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC2Filter = 0;
+  if (HAL_TIM_Encoder_Init(&htim1, &sConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -312,6 +384,7 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, ILI9341_RES_Pin|ILI9341_CS_Pin, GPIO_PIN_SET);
@@ -325,6 +398,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : ENC_BTN_Pin */
+  GPIO_InitStruct.Pin = ENC_BTN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(ENC_BTN_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
   /* USER CODE END MX_GPIO_Init_2 */
